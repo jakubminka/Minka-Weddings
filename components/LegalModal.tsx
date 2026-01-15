@@ -9,15 +9,17 @@ interface LegalModalProps {
   type: 'vop' | 'gdpr' | 'cookies' | null;
 }
 
-const LegalModal: React.FC<LegalModalProps> = ({ isOpen, onClose, type }) => {
+// Fix: Defining the component with typed props directly to ensure compatibility with JSX IntrinsicAttributes
+// This resolves the error where React.FC was used without generic props, causing IntrinsicAttributes to fail.
+const LegalModal = ({ isOpen, onClose, type }: LegalModalProps) => {
   if (!isOpen || !type) return null;
 
-  const active = LEGAL_CONTENT[type];
+  const active = LEGAL_CONTENT[type as keyof typeof LEGAL_CONTENT];
 
   return (
     <div className="fixed inset-0 z-[250] flex items-center justify-center p-4 md:p-8">
       <div className="absolute inset-0 bg-stone-950/80 backdrop-blur-sm" onClick={onClose}></div>
-      <div className="relative bg-white w-full max-w-3xl max-h-[80vh] overflow-y-auto rounded-3xl shadow-2xl p-8 md:p-12 animate-in zoom-in-95 duration-300">
+      <div className="relative bg-white w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-3xl shadow-2xl p-8 md:p-12 animate-in zoom-in-95 duration-300">
         <button 
           onClick={onClose}
           className="absolute top-6 right-6 p-2 text-stone-400 hover:text-stone-900 transition-colors"
@@ -31,19 +33,37 @@ const LegalModal: React.FC<LegalModalProps> = ({ isOpen, onClose, type }) => {
           <h2 className="text-3xl md:text-4xl font-bold serif-font text-stone-900">{active.title}</h2>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-10">
           {active.sections.map((s, i) => (
-            <div key={i}>
-              <h3 className="font-bold text-stone-900 mb-3">{s.h}</h3>
-              <p className="text-stone-600 text-sm leading-relaxed">{s.p}</p>
+            <div key={i} className="animate-in fade-in slide-in-from-bottom-2 duration-500" style={{ animationDelay: `${i * 100}ms` }}>
+              <h3 className="text-lg font-bold text-stone-900 mb-4 pb-2 border-b border-stone-50">{s.h}</h3>
+              
+              {/* Vykreslení odstavců */}
+              {s.paragraphs && s.paragraphs.map((para, pi) => (
+                <p key={pi} className="text-stone-600 text-sm leading-relaxed mb-4">
+                  {para}
+                </p>
+              ))}
+
+              {/* Vykreslení odrážek */}
+              {s.bullets && (
+                <ul className="space-y-3 mt-4 ml-4">
+                  {s.bullets.map((bullet, bi) => (
+                    <li key={bi} className="text-stone-600 text-sm leading-relaxed flex gap-3">
+                      <span className="text-ochre font-bold">•</span>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
           ))}
         </div>
 
-        <div className="mt-12 pt-8 border-t border-stone-100 flex justify-end">
+        <div className="mt-16 pt-8 border-t border-stone-100 flex justify-end">
           <button 
             onClick={onClose}
-            className="bg-stone-900 text-white px-8 py-3 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-ochre transition-all"
+            className="bg-stone-900 text-white px-8 py-3 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-ochre transition-all shadow-md"
           >
             Zavřít
           </button>
