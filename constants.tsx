@@ -1,4 +1,5 @@
-import { VideoProject, Testimonial, PricingPackage } from './types';
+
+import { VideoProject, PricingPackage } from './types';
 
 /**
  * ZDE UPRAVUJTE VEŠKERÉ TEXTY NA STRÁNCE
@@ -11,15 +12,15 @@ export const SITE_TEXTS = {
     description: "Zachyťte kouzlo okamžiku. Tvořím svatební videa, která v sobě nesou emoce, přirozenost a filmovou atmosféru.",
     ctaPrimary: "Zhlédnout filmy",
     ctaSecondary: "Rezervovat termín",
-    // Pokud chcete vlastní video, vložte URL do Hero.tsx (viz komentáře tam)
-    heroVideoId: "a9FW0dNSwYE" 
+    // ID videa z YouTube pro případ, že nepoužijete vlastní mp4
+    youtubeVideoId: "a9FW0dNSwYE" 
   },
   about: {
     label: "Kdo stojí za kamerou",
     title: "Ahoj, jsem Jakub Minka",
     p1: "Věřím, že svatební video by mělo být víc než jen záznam dne. Moje práce jako svatebního kameramana je o detailech, které jiným uniknou, a o příběhu, který dýchá i po letech.",
-    p2: "Specializuji se na filmové záběry ze svateb a působím především v těchto lokalitách: Praha, Středočeský kraj, Vysočina a Jihočeský kraj. Tato místa znám dokonale a vím, jak v nich zachytit to nejlepší světlo a atmosféru.",
-    profileImage: "https://gfdymyfjycowdedllodd.supabase.co/storage/v1/object/public/media/A7309815.webp?auto=format&fit=crop&q=80&w=800&h=1000",
+    p2: "Specializuji se na filmové záběry ze svateb a působím především v lokalitách Praha, Středočeský kraj, Vysočina a Jižní Čechy. Každá svatba je pro mě unikátní výzvou zachytit to nejdůležitější – vás dva.",
+    profileImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800&h=1000",
     stats: [
       { id: 'couples', value: '80+', label: 'Svateb' },
       { id: 'experience', value: '8 let', label: 'Praxe' },
@@ -45,7 +46,7 @@ export const SITE_TEXTS = {
   contact: {
     label: "Rezervujte si termín",
     title: "Pojďme tvořit spolu",
-    description: "Máte dotaz nebo chcete zjistit dostupnost ve váš den? Rád s vámi proberu detaily vaší svatby v Praze, Středních Čechách, na Vysočině či v Jižních Čechách.",
+    description: "Máte dotaz nebo chcete zjistit dostupnost ve váš den? Rád s vámi proberu detaily vaší svatby. Ozvěte se mi a společně vytvoříme něco nezapomenutelného.",
     email: "info@jakubminka.cz",
     phone: "+420 777 000 000",
     locations: "Praha, Střední Čechy, Vysočina, Jihočechy",
@@ -61,9 +62,14 @@ export const SITE_TEXTS = {
       success: "Zpráva odeslána! Ozvu se vám nejpozději do 24 hodin."
     }
   },
+  footer: {
+    description: "Zachycuji nejkrásnější příběhy vašeho života s úctou k emocím a přirozenosti. Působím v Praze, Středních Čechách, na Vysočině a v Jižních Čechách.",
+    copyright: "Všechna práva vyhrazena."
+  },
+  // Added cookies configuration for the CookieConsent component
   cookies: {
-    bannerTitle: "Tento web používá cookies 🍪",
-    bannerDescription: "Abych mohl web neustále vylepšovat, používám cookies pro analýzu návštěvnosti. Všechna data jsou anonymní. Pokračováním v prohlížení souhlasíte s jejich použitím."
+    bannerTitle: "Soukromí a cookies",
+    bannerDescription: "Tento web používá cookies ke zlepšení uživatelského zážitku a analýze návštěvnosti. Pokračováním v prohlížení souhlasíte s jejich používáním."
   }
 };
 
@@ -71,75 +77,53 @@ export const PRICING_PACKAGES: PricingPackage[] = [
   {
     name: 'Essential',
     price: '18 000 Kč',
-    features: ['12 hodin natáčení', '3-5 minutový Highlight film', 'Full HD rozlišení', 'Online galerie']
+    features: ['12 hodin natáčení', '3-5 minutový Highlight film', 'Full HD rozlišení', 'Online galerie', 'Zpracování do 6 týdnů']
   },
   {
     name: 'Premium',
     price: '25 000 Kč',
     recommended: true,
-    features: ['12 hodin natáčení', '5-7 minutový Highlight film', 'Záběry z dronu', '4K rozlišení']
+    features: ['12 hodin natáčení', '5-7 minutový Highlight film', 'Záběry z dronu', '4K rozlišení', 'Online galerie', 'Zpracování do 4 týdnů']
   },
   {
     name: 'Exclusive',
     price: '32 000 Kč',
-    features: ['12 hodin natáčení', '8-10 minutový Extended film', '1 minuta Teaser', 'Druhý kameraman']
+    features: ['12 hodin natáčení', '8-10 minutový Extended film', '1 minuta Teaser na IG', 'Druhý kameraman', '4K rozlišení', 'Prioritní zpracování']
   }
 ];
 
 export const VIDEO_PROJECTS: VideoProject[] = [
   {
     id: '1',
-    title: 'Monika & Štěpán',
-    location: 'Střížovický dvůr',
-    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
-    videoUrl: 'https://youtu.be/LnO9Q5KK_SU',
+    title: 'Anna & Petr',
+    location: 'Zámek Blatná',
+    thumbnail: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     category: 'highlight'
   },
   {
     id: '2',
-    title: 'Terka & Pepa',
-    location: 'Penzion u Farmáře',
+    title: 'Lucie & Marek',
+    location: 'Vinařství Sonberk',
     thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
-    videoUrl: 'https://youtu.be/9wx1Beq_uqA',
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     category: 'highlight'
   },
   {
     id: '3',
-    title: 'Kristýna & Martin',
-    location: 'Stodola Holašovice',
-    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
-    videoUrl: 'https://youtu.be/b6TIWjVYD4k',
-    category: 'highlight'
-  },
-  {
-    id: '4',
-    title: 'Jana & Žiga',
-    location: 'Penzion Na Kmíně',
-    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
-    videoUrl: 'https://youtu.be/35DuSZauEjY',
-    category: 'highlight'
-  },
-  {
-    id: '5',
-    title: 'Nikolka & Pepa',
-    location: 'Pesort Klášter Želiv',
-    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
-    videoUrl: 'https://youtu.be/t_1xysZwdqE',
-    category: 'highlight'
-  },
-   {
-    id: '6',
-    title: 'Tomáš & Radka',
-    location: 'Váňův statek',
-    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
-    videoUrl: 'https://youtu.be/lg22S8ROi5o',
+    title: 'Kateřina & Jan',
+    location: 'Villa Richter',
+    thumbnail: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     category: 'highlight'
   }
 ];
 
 export const FAQ_DATA = [
-  { question: "Jak dlouho dopředu si máme rezervovat termín?", answer: "Ideálně 6-12 měsíců předem." },
-  { question: "Kdy obdržíme hotové video?", answer: "Zpracování videa trvá obvykle 4 až 8 týdnů." }
+  { question: "Jak dlouho dopředu si máme rezervovat termín?", answer: "Svatební sezóna se plní rychle, proto doporučuji rezervaci 6-12 měsíců předem, zejména pro sobotní termíny v létě." },
+  { question: "Jaká je délka natáčení?", answer: "Všechny mé standardní balíčky obsahují 12 hodin natáčení, což obvykle pokrývá vše od příprav až po večerní zábavu." },
+  { question: "Kdy obdržíme hotové video?", answer: "Zpracování videa je precizní proces. Highlight filmy odevzdávám standardně do 4-8 týdnů v závislosti na sezóně." },
+  { question: "Natáčíte i s dronem?", answer: "Ano, pokud to počasí a lokalita dovolují, záběry z dronu jsou součástí balíčků Premium a Exclusive." }
 ];
 
 export const OTHER_PROJECTS = [
@@ -158,13 +142,13 @@ export const LEGAL_CONTENT = {
   gdpr: {
     title: 'Ochrana osobních údajů',
     sections: [
-      { h: '1. Správce údajů', p: 'Správcem vašich osobních údajů je Jakub Minka.' }
+      { h: '1. Správce údajů', p: 'Správcem vašich osobních údajů je Jakub Minka. Vaše údaje používám pouze pro účely plnění smlouvy.' }
     ]
   },
   cookies: {
     title: 'Informace o souborech Cookies',
     sections: [
-      { h: 'Co jsou cookies?', p: 'Cookies jsou malé textové soubory, které se ukládají do vašeho prohlížeče.' }
+      { h: 'Co jsou cookies?', p: 'Cookies jsou malé textové soubory, které nám pomáhají analyzovat návštěvnost webu a zlepšovat jeho funkčnost.' }
     ]
   }
 };

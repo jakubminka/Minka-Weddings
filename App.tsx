@@ -8,6 +8,7 @@ import Pricing from './components/Pricing';
 import Contact from './components/Contact';
 import CookieConsent from './components/CookieConsent';
 import LegalModal from './components/LegalModal';
+import { SITE_TEXTS } from './constants';
 
 const App: React.FC = () => {
   const [legalView, setLegalView] = useState<'vop' | 'gdpr' | 'cookies' | null>(null);
@@ -50,7 +51,7 @@ const App: React.FC = () => {
             </div>
           </div>
           <p className="mb-10 max-w-sm mx-auto text-sm leading-relaxed text-stone-400">
-            Zachycuji nejkrásnější příběhy vašeho života s úctou k emocím a přirozenosti. Působím v Praze, Středních Čechách, na Vysočině a v Jižních Čechách.
+            {SITE_TEXTS.footer.description}
           </p>
           <div className="flex flex-wrap justify-center gap-6 text-[10px] font-bold uppercase tracking-widest mb-12">
             <button onClick={() => setLegalView('vop')} className="hover:text-white transition-colors">Všeobecné obchodní podmínky</button>
@@ -58,7 +59,7 @@ const App: React.FC = () => {
             <button onClick={() => setLegalView('cookies')} className="hover:text-white transition-colors">Cookies</button>
           </div>
           <div className="text-[10px] uppercase tracking-[0.3em] font-medium text-stone-600">
-            © {new Date().getFullYear()} Jakub Minka • Všechna práva vyhrazena.
+            © {new Date().getFullYear()} Jakub Minka • {SITE_TEXTS.footer.copyright}
           </div>
         </div>
       </footer>

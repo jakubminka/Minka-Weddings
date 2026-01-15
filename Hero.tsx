@@ -3,9 +3,10 @@ import { Play, ChevronDown } from 'lucide-react';
 import { SITE_TEXTS } from './constants';
 
 const Hero: React.FC = () => {
-  // Pro naprostou čistotu bez log doporučuji použít přímý odkaz na .mp4 soubor.
-  // Pokud používáte YouTube (a9FW0dNSwYE), použijeme scale-110 pro oříznutí log.
-  const youtubeVideoId = "a9FW0dNSwYE";
+  // POKUD MÁTE VLASTNÍ VIDEO (.mp4), VLOŽTE LINK SEM:
+  // Např. const customVideoUrl = "/videa/header.mp4"; nebo URL z cloudu.
+  const customVideoUrl = ""; 
+  const youtubeVideoId = SITE_TEXTS.hero.youtubeVideoId;
 
   return (
     <div className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
@@ -14,26 +15,24 @@ const Hero: React.FC = () => {
       
       {/* Video Background Container */}
       <div className="absolute inset-0 z-0 overflow-hidden no-interact">
-        {/* VARIANTA A: YouTube s ořezem log (aktuálně aktivní) */}
-        <iframe
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[115vw] h-[65vw] min-h-[110vh] min-w-[195vh] scale-110 opacity-70"
-          src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${youtubeVideoId}&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablejsapi=1&origin=${window.location.origin}`}
-          frameBorder="0"
-          allow="autoplay; encrypted-media"
-        ></iframe>
-
-        {/* VARIANTA B: Nativní MP4 (ideální pro zero-branding) 
-            Pokud máte přímý link na mp4, odkomentujte toto a zakomentujte iframe výše.
-        <video 
-          autoPlay 
-          muted 
-          loop 
-          playsInline 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover opacity-70"
-        >
-          <source src="CESTA_K_VASIMU_VIDEU.mp4" type="video/mp4" />
-        </video> 
-        */}
+        {customVideoUrl ? (
+          <video 
+            autoPlay 
+            muted 
+            loop 
+            playsInline 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover opacity-70"
+          >
+            <source src={customVideoUrl} type="video/mp4" />
+          </video>
+        ) : (
+          <iframe
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[115vw] h-[65vw] min-h-[110vh] min-w-[195vh] scale-110 opacity-70"
+            src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${youtubeVideoId}&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablejsapi=1&origin=${window.location.origin}`}
+            frameBorder="0"
+            allow="autoplay; encrypted-media"
+          ></iframe>
+        )}
       </div>
 
       <div className="relative z-20 text-center px-4 max-w-5xl">

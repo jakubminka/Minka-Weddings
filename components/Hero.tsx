@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Play, ChevronDown } from 'lucide-react';
 import { SITE_TEXTS } from '../constants';
@@ -5,7 +6,8 @@ import { SITE_TEXTS } from '../constants';
 const Hero: React.FC = () => {
   // POKUD MÁTE VLASTNÍ VIDEO (.mp4), VLOŽTE LINK SEM:
   const customVideoUrl = ""; // např. "https://vase-domena.cz/video.mp4"
-  const youtubeVideoId = SITE_TEXTS.hero.heroVideoId;
+  // Fixed: Corrected property name from heroVideoId to youtubeVideoId
+  const youtubeVideoId = SITE_TEXTS.hero.youtubeVideoId;
 
   return (
     <div className="relative h-screen flex items-center justify-center overflow-hidden bg-black">

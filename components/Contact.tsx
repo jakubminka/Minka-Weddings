@@ -26,7 +26,7 @@ const Contact: React.FC = () => {
           <div className="lg:w-1/2">
             <span className="text-ochre font-bold tracking-[0.3em] uppercase text-xs mb-4 block">{T.label}</span>
             <h2 id="contact-title" className="text-4xl md:text-5xl font-bold serif-font mb-8">{T.title}</h2>
-            <p className="text-stone-400 mb-12 text-lg">
+            <p className="text-stone-400 mb-12 text-lg leading-relaxed">
               {T.description}
             </p>
 

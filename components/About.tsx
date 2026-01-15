@@ -19,7 +19,7 @@ const About: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           <div className="lg:w-1/2 relative">
-            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
+            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl transition-all duration-700">
               <img 
                 src={T.profileImage} 
                 alt="Jakub Minka - Svatební kameraman" 
