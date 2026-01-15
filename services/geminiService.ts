@@ -1,59 +1,65 @@
 
 import { GoogleGenAI } from "@google/genai";
-import { FAQ_DATA, PRICING_PACKAGES } from "../constants";
+import { ChatMessage } from "../types";
+import { SITE_TEXTS, PRICING_PACKAGES, FAQ_DATA } from "../constants";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || "" });
+/**
+ * Service to handle communication with the Gemini API for the Wedding Stylist chatbot.
+ * It provides context about Jakub Minka's services to help answer user queries.
+ */
+export async function getWeddingStylistResponse(prompt: string, history: ChatMessage[]): Promise<string> {
+  // Always initialize the Gemini client right before use to ensure the latest API key is used.
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
-export const getWeddingStylistResponse = async (userMessage: string, history: {role: string, content: string}[]) => {
   try {
-    const formattedHistory = history.map(h => `${h.role === 'user' ? 'Klient' : 'Asistent'}: ${h.content}`).join('\n');
-    
-    // Příprava znalostní báze pro AI
-    const faqContext = FAQ_DATA.map(f => `Otázka: ${f.question}\nOdpověď: ${f.answer}`).join('\n\n');
-    const pricingContext = PRICING_PACKAGES.map(p => `Balíček ${p.name}: Cena ${p.price}, obsahuje: ${p.features.join(', ')}`).join('\n');
+    // Construct the system instruction with relevant business information for grounding.
+    const systemInstruction = `
+      Jsi asistent svatebního kameramana Jakuba Minky. Tvým úkolem je odpovídat na dotazy klientů přátelsky, profesionálně a s nadšením pro svatby.
+      
+      Informace o Jakubovi:
+      ${SITE_TEXTS.about.p1}
+      ${SITE_TEXTS.about.p2}
+      
+      Ceník:
+      ${PRICING_PACKAGES.map(pkg => `- ${pkg.name}: ${pkg.price}. Obsahuje: ${pkg.features.join(', ')}`).join('\n')}
+      
+      FAQ:
+      ${FAQ_DATA.map(f => `Q: ${f.question}\nA: ${f.answer}`).join('\n')}
+      
+      Kontaktní údaje:
+      Email: ${SITE_TEXTS.contact.email}
+      Telefon: ${SITE_TEXTS.contact.phone}
+      Lokality: ${SITE_TEXTS.contact.locations}
+      
+      Odpovídej stručně, lidsky a jasně v češtině. Pokud něco nevíš, odkaž klienta na kontaktní formulář nebo email.
+    `;
 
-    const response = await ai.models.generateContent({
-      model: 'gemini-3-flash-preview',
-      contents: `Jsi expertní digitální asistent svatebního kameramana Jakuba Minky. 
-      Tvým úkolem je radit klientům s jejich svatbou a odpovídat na dotazy ohledně Jakubovy tvorby.
-      
-      HLAVNÍ REGIONY PŮSOBNOSTI:
-      - Praha
-      - Středočeský kraj
-      - Vysočina
-      - Jihočeský kraj
-      (Jakub za klienty dojíždí, cestovné je 8 Kč/km).
-      
-      ZNALOSTI O JAKUBOVI:
-      - Styl: Filmová přirozenost, emoce, žádné strojené pózy.
-      - Technika: Natáčení v 4K, drony, profesionální záznam zvuku (sliby, proslovy).
-      - Dodání: Teaser do 7 dnů, hlavní film do 4-8 týdnů.
-      
-      CENÍK:
-      ${pricingContext}
-      
-      ČASTÉ DOTAZY (FAQ):
-      ${faqContext}
-      
-      TVÉ ZÁSADY:
-      1. Buď profesionální, lidský a elegantní.
-      2. Pokud se klient ptá, zda natáčíš v jejich lokalitě (např. Budějovice, Jihlava, Benešov), potvrď, že v těchto krajích (Jižní Čechy, Vysočina, Střední Čechy) Jakub natáčí velmi často a rád.
-      3. Pokud se klient ptá na obecné svatební rady, poraď mu z pohledu kameramana.
-      4. Na dotazy o dostupnosti termínu odpověz, že je třeba vyplnit formulář níže.
-      5. Mluv v češtině. Piš stručně a v odstavcích.
-      
-      Kontext předchozí konverzace:
-      ${formattedHistory}
-      
-      Dotaz klienta: ${userMessage}`,
-      config: {
-        temperature: 0.7,
-      }
+    // Map conversation history to the format required by the Google GenAI SDK.
+    const contents = history.map(msg => ({
+      role: (msg.role === 'assistant' ? 'model' : 'user') as 'user' | 'model',
+      parts: [{ text: msg.content }]
+    }));
+
+    // Add the current user's prompt as the final part of the conversation.
+    contents.push({
+      role: 'user',
+      parts: [{ text: prompt }]
     });
 
-    return response.text || "Omlouvám se, ale momentálně nemohu odpovědět. Prosím, napište Jakubovi přímo přes formulář.";
+    // Query the Gemini 3 Flash model for a fast and efficient text response.
+    const response = await ai.models.generateContent({
+      model: 'gemini-3-flash-preview',
+      contents: contents,
+      config: {
+        systemInstruction: systemInstruction,
+        temperature: 0.7,
+      },
+    });
+
+    // Access the .text property directly to retrieve the generated string.
+    return response.text || "Omlouvám se, ale momentálně nejsem schopen odpovědět. Zkuste to prosím později.";
   } catch (error) {
     console.error("Gemini API Error:", error);
-    return "Omlouvám se, došlo k chybě. Zkuste to prosím za chvíli.";
+    return "Omlouvám se, nastala chyba při komunikaci s mým svatebním rádcem. Prosím, napište Jakubovi přímo na email info@jakubminka.cz.";
   }
-};
+}
