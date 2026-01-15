@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Play, ChevronDown } from 'lucide-react';
 import { SITE_TEXTS } from './constants';
@@ -29,6 +30,7 @@ const Hero: React.FC = () => {
             src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${youtubeVideoId}&rel=0&playsinline=1&modestbranding=1`}
             frameBorder="0"
             allow="autoplay; encrypted-media; gyroscope; picture-in-picture"
+            title="Svatební video pozadí"
           ></iframe>
         )}
       </div>
