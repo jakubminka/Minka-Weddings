@@ -169,7 +169,7 @@ export const LEGAL_CONTENT = {
       { 
         h: '1. Úvodní ustanovení', 
         items: [
-          { type: 'ul', bullets: ['Tyto VOP upravují vztah mezi kameramanem Jakubem Minkou (bytem Menhartova 1529, 39301 Pelhřimov, IČO: 03942074, DIČ: CZ9410041553) a klientem. Smluvní vztah vzniká potvrzením rezervace a zaplacením rezervačního poplatku.' ]}
+          { type: 'ul', bullets: ['Tyto VOP upravují vztah mezi kameramanem Jakubem Minkou se sídlem Menhartova 1529, 39301 Pelhřimov, IČO: 03942074, DIČ: CZ9410041553 a klientem. Smluvní vztah vzniká potvrzením rezervace a zaplacením rezervačního poplatku.' ]}
         ]
       },
       { 
@@ -193,7 +193,19 @@ export const LEGAL_CONTENT = {
         ]
       },
       {
-        h: '4. Termíny a odevzdání díla',
+        h: '4. Revize a úpravy:',
+        items: [
+          { type: 'p', text: 'V ceně balíčku je zahrnuto jedno kolo revizí.' },
+          { type: 'ul', bullets: [
+            'Klient má právo po obdržení hotového videa (hlavního klipu i dokumentu) zaslat seznam konkrétních připomínek a požadavků na úpravy, a to najednou, nejpozději do 7 dnů od doručení odkazu.',
+            'Tyto úpravy budou provedeny bezplatně v nejbližším možném termínu.',
+            'Další kola revizí nebo úpravy nad rámec původního zadání jsou zpoplatněny částkou [např. 500–1 000] Kč za každou započatou hodinu práce kameramana.',
+            'Revize se vztahují na věcné chyby nebo drobné úpravy (např. „vyměnit tento záběr za jiný“, „tato osoba tam nechce být“). Nevztahují se na kompletní změnu stylu střihu nebo kompletní výměnu hudby, pokud byla již dříve odsouhlasena nebo ponechána na umělecké svobodě kameramana.'
+          ]}
+        ]
+      },
+      {
+        h: '5. Termíny a odevzdání díla',
         items: [
           { type: 'ul', bullets: [
             'Způsob dodání: Video je předáváno výhradně digitálně přes cloudové úložiště.',
@@ -203,7 +215,7 @@ export const LEGAL_CONTENT = {
         ]
       },
       {
-        h: '5. Archivace a surový materiál',
+        h: '6. Archivace a surový materiál',
         items: [
           { type: 'ul', bullets: [
             'Hotové video: Kameraman uchovává finální vyexportované video po neomezenou dobu.',
@@ -213,7 +225,7 @@ export const LEGAL_CONTENT = {
         ]
       },
       {
-        h: '6. Autorská práva',
+        h: '7. Autorská práva',
         items: [
           { type: 'ul', bullets: [
             'Klient souhlasí s autorským stylem kameramana. Kameraman si vyhrazuje právo použít ukázky z díla pro svou prezentaci, pokud není dohodnuto jinak.'
@@ -221,7 +233,7 @@ export const LEGAL_CONTENT = {
         ]
       },
       {
-        h: '6. Odstoupení od smlouvy',
+        h: '8. Odstoupení od smlouvy',
         items: [
           { type: 'ul', bullets: [
             'Při zrušení termínu ze strany klienta rezervační poplatek propadá. Při nemožnosti plnění ze strany kameramana se kameraman pokusí zajistit náhradu nebo vrátí poplatek.'
@@ -231,24 +243,71 @@ export const LEGAL_CONTENT = {
     ]
   },
   gdpr: {
-    title: '7. Ochrana osobních údajů',
+    title: 'Informace o zpracování osobních údajů (GDPR)',
     sections: [
       { 
-        h: '1. Správce údajů', 
+        h: '1. Správce osobních údajů', 
         items: [
-          { type: 'p', text: 'Správcem vašich osobních údajů je Jakub Minka.' },
-          { type: 'p', text: 'Vaše údaje používám pouze pro účely plnění smlouvy a komunikaci s vámi.' }
+          { type: 'p', text: 'Správcem osobních údajů je Jakub Minka se sídlem Menhartova 1529, 39301 Pelhřimov, IČO: 03942074, DIČ: CZ9410041553 (dále jen „správce").' },
         ]
       },
       {
-        h: '2. Rozsah zpracování',
+        h: '2. Jaké údaje zpracovávám?',
+        items: [
+          { type: 'p', text: 'Zpracovávám pouze údaje nezbytné pro plnění smlouvy a poskytování služeb:' },
+          { type: 'ul', bullets: [
+            'Identifikační údaje: Jména a příjmení novomanželů.',
+            'Kontaktní údaje: E-mail, telefonní číslo.',
+            'Obrazový materiál: Videozáznamy zachycující novomanžele a svatební hosty.'
+          ]}
+        ]
+      },
+      {
+        h: '3. Účel zpracování',
+        items: [
+          { type: 'p', text: 'Vaše údaje zpracovávám za účelem:' },
+          { type: 'ul', bullets: [
+            '1. Plnění smlouvy: Komunikace, realizace natáčení a doručení hotového díla.',
+            '2. Propagace: Zveřejnění ukázek práce na mém webu nebo sociálních sítích (v souladu s uměleckou licencí).'
+          ]}
+        ]
+      },
+      {
+        h: '4. Doba uchování údajů',
         items: [
           { type: 'ul', bullets: [
-            'Jméno a příjmení',
-            'E-mailová adresa a telefonní číslo',
-            'Informace o místě a čase konání svatby',
-            'Obrazové záznamy osob'
+            'Surové videozáznamy: Uchovávám po dobu 2 let od termínu svatby pro potřeby případných úprav nebo ztráty (jak je uvedeno ve VOP).',
+            'Hotové dílo: Uchovávám po neomezenou dobu jako součást svého digitálního archivu (pokud nepožádáte o smazání).'
           ]}
+        ]
+      },
+      {
+        h: '5. Kdo má k údajům přístup?',
+        items: [
+          { type: 'p', text: 'Vaše údaje jsou u mě v bezpečí. K jejich zpracování však využívám některé služby třetích stran, které splňují standardy GDPR:'},
+          { type: 'ul', bullets: [
+            'Cloudová úložiště: (např. Google Drive / OneDrive / WeTransfer) pro doručení videa.',
+            'Externí střihači nebo kameramani: Pokud na zakázce spolupracuje další osoba (vázaná mlčenlivostí).'
+          ]}
+        ]
+      },
+      {
+        h: '6. Práva klienta',
+        items: [
+          { type: 'p', text: 'Podle nařízení GDPR máte následující práva:'},
+          { type: 'ul', bullets: [
+            'Právo na přístup k vašim údajům a informaci, jak je zpracovávám.',
+            'Právo na opravu nepřesných údajů.',
+            'Právo na výmaz (tzv. „právo být zapomenut“), pokud již nejsou údaje potřeba pro plnění smlouvy nebo zákonné účely.',
+             'Právo vznést námitku proti zpracování pro účely marketingu.'
+          ]}
+        ]
+      },
+       {
+        h: '7. Ochrana soukromí svatebních hostů',
+        items: [
+          { type: 'p', text: 'Jako klient potvrzujete, že jste informovali své hosty o přítomnosti kameramana na svatbě. Záznamy jsou pořizovány pro vaše soukromé účely a pro mé umělecké účely (reference).'},
+
         ]
       }
     ]
