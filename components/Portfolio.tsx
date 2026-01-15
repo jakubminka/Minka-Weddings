@@ -19,24 +19,27 @@ const Portfolio: React.FC = () => {
     }
   }, [selectedVideo]);
 
-  // Funkce pro zajištění správného embed formátu YouTube URL
+  // Funkce pro zajištění správného embed formátu YouTube URL (používá no-cookie verzi)
   const getEmbedUrl = (url: string) => {
     if (!url) return '';
     
-    // Pokud je to už embed formát, jen vrátíme
-    if (url.includes('youtube.com/embed/')) {
-      return url.split('?')[0]; // Odstraníme případné stávající parametry pro čistý základ
-    }
-
-    // Regulární výraz pro zachycení ID videa z různých typů YouTube odkazů
+    let videoId = '';
+    
+    // Extrakce ID videa
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
     const match = url.match(regExp);
     
     if (match && match[2].length === 11) {
-      return `https://www.youtube.com/embed/${match[2]}`;
+      videoId = match[2];
+    } else if (url.includes('youtube.com/embed/')) {
+      const parts = url.split('/');
+      videoId = parts[parts.length - 1].split('?')[0];
+    } else {
+      return url; // Pokud to není YouTube, vrátíme původní
     }
     
-    return url;
+    // Použití youtube-nocookie.com pro zamezení problémů s přihlašováním a cookies
+    return `https://www.youtube-nocookie.com/embed/${videoId}`;
   };
 
   return (
@@ -96,7 +99,7 @@ const Portfolio: React.FC = () => {
           </button>
           <div className="relative w-full max-w-5xl aspect-video rounded-2xl overflow-hidden shadow-2xl" onClick={(e) => e.stopPropagation()}>
             <iframe 
-              src={`${getEmbedUrl(selectedVideo)}?autoplay=1&rel=0&modestbranding=1`} 
+              src={`${getEmbedUrl(selectedVideo)}?autoplay=1&rel=0&modestbranding=1&origin=${window.location.origin}`} 
               title="Svatební video Jakub Minka" 
               frameBorder="0" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
