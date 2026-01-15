@@ -10,10 +10,11 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ onShowDetails }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Pro testování můžete zkusit smazat localStorage: localStorage.removeItem('cookie-consent')
+    // Pro testování: localStorage.removeItem('cookie-consent')
     const consent = localStorage.getItem('cookie-consent');
     if (!consent) {
-      const timer = setTimeout(() => setIsVisible(true), 1500);
+      // Zobrazení lišty po 1 vteřině
+      const timer = setTimeout(() => setIsVisible(true), 1000);
       return () => clearTimeout(timer);
     }
   }, []);
@@ -26,8 +27,8 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ onShowDetails }) => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-[300] p-4 md:p-6 animate-in slide-in-from-bottom-full duration-700">
-      <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-stone-100 p-6 flex flex-col md:flex-row items-center gap-6">
+    <div className="fixed bottom-0 left-0 right-0 z-[999] p-4 md:p-6 animate-in slide-in-from-bottom-full duration-700">
+      <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-[0_30px_60px_rgba(0,0,0,0.4)] border border-stone-200 p-6 flex flex-col md:flex-row items-center gap-6">
         <div className="flex-1">
           <h4 className="font-bold text-stone-900 mb-1">{SITE_TEXTS.cookies.bannerTitle}</h4>
           <p className="text-[11px] text-stone-500 leading-relaxed">
