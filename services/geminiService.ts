@@ -4,35 +4,24 @@ import { ChatMessage } from "../types";
 import { SITE_TEXTS, PRICING_PACKAGES, FAQ_DATA } from "../constants";
 
 export async function getWeddingStylistResponse(prompt: string, history: ChatMessage[]): Promise<string> {
-  const apiKey = process.env.API_KEY;
+  // Přístup přes process.env.API_KEY, který definujeme ve vite.config.ts
+  const apiKey = (process.env as any).API_KEY;
   
   if (!apiKey) {
-    console.error("Gemini API Key is missing. Check your environment variables.");
-    return "Omlouvám se, můj svatební rádce je momentálně offline (chybí API klíč). Kontaktujte prosím Jakuba přímo.";
+    console.warn("Gemini API Key missing in environment.");
+    return "Omlouvám se, můj svatební rádce je momentálně offline. Kontaktujte prosím Jakuba přímo na emailu.";
   }
 
   const ai = new GoogleGenAI({ apiKey });
 
   try {
     const systemInstruction = `
-      Jsi asistent svatebního kameramana Jakuba Minky. Tvým úkolem je odpovídat na dotazy klientů přátelsky, profesionálně a s nadšením pro svatby.
+      Jsi profesionální a milý asistent svatebního kameramana Jakuba Minky. 
+      Tvé informace o Jakubovi: ${SITE_TEXTS.about.p1} ${SITE_TEXTS.about.p2}
+      Nabízené balíčky: ${PRICING_PACKAGES.map(p => `${p.name} za ${p.price}`).join(', ')}.
+      Lokality: ${SITE_TEXTS.contact.locations}.
       
-      Informace o Jakubovi:
-      ${SITE_TEXTS.about.p1}
-      ${SITE_TEXTS.about.p2}
-      
-      Ceník:
-      ${PRICING_PACKAGES.map(pkg => `- ${pkg.name}: ${pkg.price}. Obsahuje: ${pkg.features.join(', ')}`).join('\n')}
-      
-      FAQ:
-      ${FAQ_DATA.map(f => `Q: ${f.question}\nA: ${f.answer}`).join('\n')}
-      
-      Kontaktní údaje:
-      Email: ${SITE_TEXTS.contact.email}
-      Telefon: ${SITE_TEXTS.contact.phone}
-      Lokality: ${SITE_TEXTS.contact.locations}
-      
-      Odpovídej stručně, lidsky a jasně v češtině. Pokud něco nevíš, odkaž klienta na kontaktní formulář nebo email.
+      Odpovídej v češtině, stručně a pomáhej klientům s dotazy na služby.
     `;
 
     const contents = history.map(msg => ({
@@ -54,9 +43,9 @@ export async function getWeddingStylistResponse(prompt: string, history: ChatMes
       },
     });
 
-    return response.text || "Omlouvám se, ale momentálně nejsem schopen odpovědět. Zkuste to prosím později.";
+    return response.text || "Zkuste prosím dotaz zformulovat jinak.";
   } catch (error) {
-    console.error("Gemini API Error:", error);
-    return "Omlouvám se, nastala chyba při komunikaci s mým svatebním rádcem. Prosím, napište Jakubovi přímo na email info@jakubminka.cz.";
+    console.error("Gemini Error:", error);
+    return "Omlouvám se, došlo k technické chybě. Napište prosím Jakubovi přímo.";
   }
 }
