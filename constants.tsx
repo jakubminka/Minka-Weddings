@@ -89,18 +89,50 @@ export const PRICING_PACKAGES: PricingPackage[] = [
 export const VIDEO_PROJECTS: VideoProject[] = [
   {
     id: '1',
-    title: 'Anna & Petr',
-    location: 'Zámek Blatná',
-    thumbnail: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    title: 'Monika & Štěpán',
+    location: 'Střížovický dvůr',
+    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://youtu.be/LnO9Q5KK_SU',
     category: 'highlight'
   },
   {
     id: '2',
-    title: 'Lucie & Marek',
-    location: 'Vinařství Sonberk',
+    title: 'Terka & Pepa',
+    location: 'Penzion u Farmáře',
     thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    videoUrl: 'https://youtu.be/9wx1Beq_uqA',
+    category: 'highlight'
+  },
+  {
+    id: '3',
+    title: 'Kristýna & Martin',
+    location: 'Stodola Holašovice',
+    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://youtu.be/b6TIWjVYD4k',
+    category: 'highlight'
+  },
+  {
+    id: '4',
+    title: 'Jana & Žiga',
+    location: 'Penzion Na Kmíně',
+    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://youtu.be/35DuSZauEjY',
+    category: 'highlight'
+  },
+  {
+    id: '5',
+    title: 'Nikolka & Pepa',
+    location: 'Pesort Klášter Želiv',
+    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://youtu.be/t_1xysZwdqE',
+    category: 'highlight'
+  },
+   {
+    id: '6',
+    title: 'Tomáš & Radka',
+    location: 'Váňův statek',
+    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://youtu.be/lg22S8ROi5o',
     category: 'highlight'
   }
 ];
