@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { VIDEO_PROJECTS, SITE_TEXTS } from '../constants';
 import { Play, X, ChevronDown } from 'lucide-react';
@@ -19,10 +20,8 @@ const Portfolio: React.FC = () => {
     }
   }, [selectedVideo]);
 
-  // Funkce pro extrakci čistého ID videa a vytvoření embed URL
   const getEmbedUrl = (url: string) => {
     if (!url) return '';
-    
     let videoId = '';
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
     const match = url.match(regExp);
@@ -35,9 +34,9 @@ const Portfolio: React.FC = () => {
     }
 
     if (videoId) {
-      return `https://www.youtube.com/embed/${videoId}`;
+      // Pro portfoliová videa dáváme minimum parametrů pro největší stabilitu
+      return `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1&enablejsapi=1`;
     }
-    
     return url;
   };
 
@@ -98,7 +97,7 @@ const Portfolio: React.FC = () => {
           </button>
           <div className="relative w-full max-w-5xl aspect-video rounded-2xl overflow-hidden shadow-2xl" onClick={(e) => e.stopPropagation()}>
             <iframe 
-              src={`${getEmbedUrl(selectedVideo)}?autoplay=1&rel=0&modestbranding=1&playsinline=1`} 
+              src={getEmbedUrl(selectedVideo)} 
               title="Svatební video Jakub Minka" 
               frameBorder="0" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
