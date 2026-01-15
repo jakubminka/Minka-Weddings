@@ -9,8 +9,6 @@ interface LegalModalProps {
   type: 'vop' | 'gdpr' | 'cookies' | null;
 }
 
-// Fix: Defining the component with typed props directly to ensure compatibility with JSX IntrinsicAttributes
-// This resolves the error where React.FC was used without generic props, causing IntrinsicAttributes to fail.
 const LegalModal = ({ isOpen, onClose, type }: LegalModalProps) => {
   if (!isOpen || !type) return null;
 
@@ -38,24 +36,26 @@ const LegalModal = ({ isOpen, onClose, type }: LegalModalProps) => {
             <div key={i} className="animate-in fade-in slide-in-from-bottom-2 duration-500" style={{ animationDelay: `${i * 100}ms` }}>
               <h3 className="text-lg font-bold text-stone-900 mb-4 pb-2 border-b border-stone-50">{s.h}</h3>
               
-              {/* Vykreslení odstavců */}
-              {s.paragraphs && s.paragraphs.map((para, pi) => (
-                <p key={pi} className="text-stone-600 text-sm leading-relaxed mb-4">
-                  {para}
-                </p>
-              ))}
-
-              {/* Vykreslení odrážek */}
-              {s.bullets && (
-                <ul className="space-y-3 mt-4 ml-4">
-                  {s.bullets.map((bullet, bi) => (
-                    <li key={bi} className="text-stone-600 text-sm leading-relaxed flex gap-3">
-                      <span className="text-ochre font-bold">•</span>
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
+              <div className="space-y-4">
+                {s.items.map((item, index) => (
+                  <React.Fragment key={index}>
+                    {item.type === 'p' ? (
+                      <p className="text-stone-600 text-sm leading-relaxed">
+                        {item.text}
+                      </p>
+                    ) : (
+                      <ul className="space-y-3 ml-4">
+                        {item.bullets?.map((bullet, bi) => (
+                          <li key={bi} className="text-stone-600 text-sm leading-relaxed flex gap-3">
+                            <span className="text-ochre font-bold shrink-0">•</span>
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </React.Fragment>
+                ))}
+              </div>
             </div>
           ))}
         </div>
