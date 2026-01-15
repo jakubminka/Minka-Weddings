@@ -9,7 +9,7 @@ export const SITE_TEXTS = {
     label: "Svatební filmy • Jakub Minka",
     title: "Příběhy,",
     titleItalic: "které ožívají",
-    description: "Zachyťte kouzlo okamžiku. Tvořím svatební videa, která v sobě nesou emoce, přirozenost a filmovou atmosféru.",
+    description: "Tvořím svatební videa, která v sobě nesou emoce, přirozenost a filmovou atmosféru.",
     ctaPrimary: "Zhlédnout filmy",
     ctaSecondary: "Rezervovat termín",
     // ID videa z YouTube pro případ, že nepoužijete vlastní mp4
@@ -18,14 +18,14 @@ export const SITE_TEXTS = {
   about: {
     label: "Kdo stojí za kamerou",
     title: "Ahoj, jsem Jakub Minka",
-    p1: "Věřím, že svatební video by mělo být víc než jen záznam dne. Moje práce jako svatebního kameramana je o detailech, které jiným uniknou, a o příběhu, který dýchá i po letech.",
-    p2: "Specializuji se na filmové záběry ze svateb a působím především v lokalitách Praha, Středočeský kraj, Vysočina a Jižní Čechy. Každá svatba je pro mě unikátní výzvou zachytit to nejdůležitější – vás dva.",
-    profileImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800&h=1000",
+    p1: "Věřím, že svatební video by mělo být víc než jen záznam dne. Moje práce svatebního kameramana je o detailech, které jiným uniknou, a o příběhu, který dýchá i po letech.",
+    p2: "Specializuji se na filmové záběry ze svateb a působím především v Praze, ve Středočeskén kraji, na Vysočině a v Jižních Čechách. Každá svatba je pro mě unikátní výzvou zachytit to nejdůležitější z vašeho dne.",
+    profileImage: "https://gfdymyfjycowdedllodd.supabase.co/storage/v1/object/public/media/A7309815.webp?auto=format&fit=crop&q=80&w=800&h=1000",
     stats: [
-      { id: 'couples', value: '80+', label: 'Svateb' },
-      { id: 'experience', value: '8 let', label: 'Praxe' },
-      { id: 'reliability', value: '100%', label: 'Spolehlivost' },
-      { id: 'quality', value: '4K', label: 'Výstup' },
+      { id: 'couples', value: 'desitky', label: 'svateb' },
+      { id: 'experience', value: '8 let', label: 'praxe' },
+      { id: 'reliability', value: '100%', label: 'spolehlivost' },
+      { id: 'quality', value: '4K', label: 'výstup' },
     ]
   },
   portfolio: {
@@ -40,16 +40,16 @@ export const SITE_TEXTS = {
   pricing: {
     label: "Investice do vzpomínek",
     title: "Svatební balíčky",
-    note: "* Neobsahuje cestovné (8 Kč/km z Prahy nebo Ostravy). Možnost individuální úpravy balíčků na míru.",
+    note: "* Cestovné do 50 km od místa mého bydliště je již zahrnuto v ceně. Za každý kilometr nad 100 km celkem si účtuji 10 Kč / km.",
     cta: "Poptat balíček"
   },
   contact: {
     label: "Rezervujte si termín",
-    title: "Pojďme tvořit spolu",
-    description: "Máte dotaz nebo chcete zjistit dostupnost ve váš den? Rád s vámi proberu detaily vaší svatby. Ozvěte se mi a společně vytvoříme něco nezapomenutelného.",
-    email: "info@jakubminka.cz",
-    phone: "+420 777 000 000",
-    locations: "Praha, Střední Čechy, Vysočina, Jihočechy",
+    title: "Zachytím váš svatební příběh",
+    description: "Máte dotaz nebo chcete zjistit dostupnost ve váš den? Rád s vámi proberu detaily vaší svatby.",
+    email: "mail@jakubminka.cz",
+    phone: "+420 731 055 983",
+    locations: "Praha, Střední Čechy, Vysočina, Jižní Čechy",
     form: {
       name: "Jméno a příjmení",
       email: "E-mail",
@@ -63,7 +63,7 @@ export const SITE_TEXTS = {
     }
   },
   footer: {
-    description: "Zachycuji nejkrásnější příběhy vašeho života s úctou k emocím a přirozenosti. Působím v Praze, Středních Čechách, na Vysočině a v Jižních Čechách.",
+    description: "Zachycuji nejkrásnější příběhy vašeho života s důrazem na emoce a přirozenost. Působím v Praze, ve Středních Čechách, na Vysočině a v Jižních Čechách.",
     copyright: "Všechna práva vyhrazena."
   },
   // Added cookies configuration for the CookieConsent component
@@ -76,19 +76,19 @@ export const SITE_TEXTS = {
 export const PRICING_PACKAGES: PricingPackage[] = [
   {
     name: 'Essential',
-    price: '18 000 Kč',
-    features: ['12 hodin natáčení', '3-5 minutový Highlight film', 'Full HD rozlišení', 'Online galerie', 'Zpracování do 6 týdnů']
+    price: '20 000 Kč',
+    features: ['8 hodin natáčení', '1 kameraman', '3-5 minutový film', 'Dron v ceně', 'Zpracování do 2-4 týdnů']
   },
   {
     name: 'Premium',
     price: '25 000 Kč',
     recommended: true,
-    features: ['12 hodin natáčení', '5-7 minutový Highlight film', 'Záběry z dronu', '4K rozlišení', 'Online galerie', 'Zpracování do 4 týdnů']
+    features: ['12 hodin natáčení', '1 kameraman', '3-5 minutový film', 'Dron v ceně', 'Zpracování do 2-4 týdnů']
   },
   {
     name: 'Exclusive',
-    price: '32 000 Kč',
-    features: ['12 hodin natáčení', '8-10 minutový Extended film', '1 minuta Teaser na IG', 'Druhý kameraman', '4K rozlišení', 'Prioritní zpracování']
+    price: '30 000 Kč',
+    features: ['12 hodin natáčení', '1 kameraman', '3-5 minutový film', 'až 20 minutový dokument','Dron v ceně', 'Zpracování do 4 týdnů']
   }
 ];
 
