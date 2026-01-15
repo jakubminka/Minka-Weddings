@@ -191,7 +191,7 @@ export const LEGAL_CONTENT = {
             'Ochrana techniky: Klient odpovídá za škody na technice kameramana způsobené hosty nebo provozem svatby (např. převržení stativu, polití techniky). V případě poškození je klient povinen uhradit náklady na opravu či pořízení nového vybavení.'
           ]}
         ]
-      }
+      },
       {
         h: '4. Termíny a odevzdání díla',
         items: [
@@ -201,7 +201,7 @@ export const LEGAL_CONTENT = {
             'Hudba: Kameraman využívá hudbu z vlastních licencovaných bank. Licence pro užití v rámci videí je již zahrnuta v ceně.'
           ]}
         ]
-      }
+      },
       {
         h: '5. Archivace a surový materiál',
         items: [
@@ -211,7 +211,7 @@ export const LEGAL_CONTENT = {
             'Poskytnutí surových záběrů: Standardně se surový materiál neodevzdává. Jeho poskytnutí je možné pouze na základě předchozí dohody a může být zpoplatněno dle aktuálního ceníku.'
           ]}
         ]
-      }
+      },
       {
         h: '6. Autorská práva',
         items: [
@@ -219,7 +219,7 @@ export const LEGAL_CONTENT = {
             'Klient souhlasí s autorským stylem kameramana. Kameraman si vyhrazuje právo použít ukázky z díla pro svou prezentaci, pokud není dohodnuto jinak.'
           ]}
         ]
-      }
+      },
       {
         h: '6. Odstoupení od smlouvy',
         items: [
@@ -231,7 +231,7 @@ export const LEGAL_CONTENT = {
     ]
   },
   gdpr: {
-    title: 'Ochrana osobních údajů',
+    title: '7. Ochrana osobních údajů',
     sections: [
       { 
         h: '1. Správce údajů', 
