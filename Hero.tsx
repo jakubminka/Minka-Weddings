@@ -4,7 +4,7 @@ import { Play, ChevronDown } from 'lucide-react';
 import { SITE_TEXTS } from './constants';
 
 const Hero: React.FC = () => {
-  const customVideoUrl = ""; 
+  const customVideoUrl = "https://gfdymyfjycowdedllodd.supabase.co/storage/v1/object/public/media/header.mp4"; 
   const youtubeVideoId = SITE_TEXTS.hero.youtubeVideoId;
 
   // Sestavení URL s parametry, které jsou méně náchylné k blokování
