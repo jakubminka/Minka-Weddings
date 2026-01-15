@@ -1,66 +1,18 @@
 
 import React from 'react';
 import { X } from 'lucide-react';
+import { LEGAL_CONTENT } from '../constants';
 
 interface LegalModalProps {
   isOpen: boolean;
   onClose: () => void;
-  type: 'vop' | 'gdpr' | null;
+  type: 'vop' | 'gdpr' | 'cookies' | null;
 }
 
 const LegalModal: React.FC<LegalModalProps> = ({ isOpen, onClose, type }) => {
   if (!isOpen || !type) return null;
 
-  const content = {
-    vop: {
-      title: 'Všeobecné obchodní podmínky',
-      sections: [
-        {
-          h: '1. Úvodní ustanovení',
-          p: 'Tyto obchodní podmínky platí pro poskytování služeb svatebního kameramana Jakub Minka. Smlouva mezi kameramanem a klientem vzniká potvrzením rezervace a úhradou rezervačního poplatku.'
-        },
-        {
-          h: '2. Rezervace a platba',
-          p: 'Rezervace termínu je závazná po úhradě nevratného rezervačního poplatku ve výši 30 % z celkové ceny balíčku. Doplatek je splatný nejpozději v den konání svatby nebo dle dohody po dodání hotového díla.'
-        },
-        {
-          h: '3. Práva a povinnosti',
-          p: 'Kameraman se zavazuje dodat dílo v dohodnuté kvalitě. Klient zajistí kameramanovi stravu a pitný režim během celého dne natáčení a přístup na všechna místa konání obřadu a oslavy.'
-        },
-        {
-          h: '4. Dodací lhůty',
-          p: 'Standardní doba zpracování svatebního videa je 4–8 týdnů od data konání svatby. Krátký teaser je obvykle dodáván do 7 dnů.'
-        },
-        {
-          h: '5. Autorská práva',
-          p: 'Autorská práva k videozáznamu náleží kameramanovi. Klient získává licenci pro osobní užití. Komerční užití nebo další prodej bez souhlasu autora není dovolen.'
-        }
-      ]
-    },
-    gdpr: {
-      title: 'Ochrana osobních údajů',
-      sections: [
-        {
-          h: '1. Správce údajů',
-          p: 'Správcem vašich osobních údajů je Jakub Minka. Vaše údaje zpracováváme výhradně pro účely realizace svatebního videa a komunikace s vámi.'
-        },
-        {
-          h: '2. Rozsah zpracování',
-          p: 'Zpracováváme jména, e-mailové adresy, telefonní čísla a vizuální podobu zachycenou na videozáznamu.'
-        },
-        {
-          h: '3. Právní základ',
-          p: 'Zpracování je nezbytné pro plnění smlouvy, jejíž smluvní stranou je subjekt údajů (klient).'
-        },
-        {
-          h: '4. Doba uložení',
-          p: 'Osobní údaje v podobě surových záběrů uchováváme po dobu 12 měsíců pro případné reklamace nebo úpravy. Hotové video uchováváme v archivu trvale jako součást našeho portfolia (pokud není dohodnuto jinak).'
-        }
-      ]
-    }
-  };
-
-  const active = content[type];
+  const active = LEGAL_CONTENT[type];
 
   return (
     <div className="fixed inset-0 z-[250] flex items-center justify-center p-4 md:p-8">
@@ -69,6 +21,7 @@ const LegalModal: React.FC<LegalModalProps> = ({ isOpen, onClose, type }) => {
         <button 
           onClick={onClose}
           className="absolute top-6 right-6 p-2 text-stone-400 hover:text-stone-900 transition-colors"
+          aria-label="Zavřít okno"
         >
           <X size={24} />
         </button>

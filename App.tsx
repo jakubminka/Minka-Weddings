@@ -11,7 +11,7 @@ import CookieConsent from './components/CookieConsent';
 import LegalModal from './components/LegalModal';
 
 const App: React.FC = () => {
-  const [legalView, setLegalView] = useState<'vop' | 'gdpr' | null>(null);
+  const [legalView, setLegalView] = useState<'vop' | 'gdpr' | 'cookies' | null>(null);
 
   return (
     <div className="min-h-screen bg-stone-50 selection:bg-ochre selection:text-white">
@@ -25,7 +25,7 @@ const App: React.FC = () => {
         <Contact />
       </main>
       
-      <CookieConsent />
+      <CookieConsent onShowDetails={() => setLegalView('cookies')} />
       
       <LegalModal 
         isOpen={legalView !== null} 
@@ -56,7 +56,7 @@ const App: React.FC = () => {
           <div className="flex flex-wrap justify-center gap-6 text-[10px] font-bold uppercase tracking-widest mb-12">
             <button onClick={() => setLegalView('vop')} className="hover:text-white transition-colors">Všeobecné obchodní podmínky</button>
             <button onClick={() => setLegalView('gdpr')} className="hover:text-white transition-colors">Zásady ochrany osobních údajů (GDPR)</button>
-            <button onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})} className="hover:text-white transition-colors">Cookies</button>
+            <button onClick={() => setLegalView('cookies')} className="hover:text-white transition-colors">Cookies</button>
           </div>
           <div className="text-[10px] uppercase tracking-[0.3em] font-medium text-stone-600">
             © {new Date().getFullYear()} Jakub Minka • Všechna práva vyhrazena.

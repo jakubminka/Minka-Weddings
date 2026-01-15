@@ -1,7 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
+import { SITE_TEXTS } from '../constants';
 
-const CookieConsent: React.FC = () => {
+interface CookieConsentProps {
+  onShowDetails: () => void;
+}
+
+const CookieConsent: React.FC<CookieConsentProps> = ({ onShowDetails }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -23,14 +28,14 @@ const CookieConsent: React.FC = () => {
     <div className="fixed bottom-0 left-0 right-0 z-[200] p-4 md:p-6 animate-in slide-in-from-bottom-full duration-700">
       <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] border border-stone-100 p-6 flex flex-col md:flex-row items-center gap-6">
         <div className="flex-1">
-          <h4 className="font-bold text-stone-900 mb-1">Tento web používá cookies 🍪</h4>
+          <h4 className="font-bold text-stone-900 mb-1">{SITE_TEXTS.cookies.bannerTitle}</h4>
           <p className="text-xs text-stone-500 leading-relaxed">
-            Abych mohl web neustále vylepšovat, používám cookies pro analýzu návštěvnosti. Všechna data jsou anonymní. Pokračováním v prohlížení souhlasíte s jejich použitím.
+            {SITE_TEXTS.cookies.bannerDescription}
           </p>
         </div>
         <div className="flex items-center gap-4 shrink-0">
-          <button onClick={handleAccept} className="text-stone-400 hover:text-stone-900 text-xs font-bold uppercase tracking-widest transition-colors">
-            Nastavení
+          <button onClick={onShowDetails} className="text-stone-400 hover:text-stone-900 text-xs font-bold uppercase tracking-widest transition-colors">
+            Podrobnosti
           </button>
           <button 
             onClick={handleAccept}

@@ -61,7 +61,8 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between items-center">
           <div className="flex items-center">
             <a href="#" onClick={(e) => handleNavClick(e, '#')} className="flex items-center gap-3 group">
-              <div className="logo-box">
+              {/* Dynamická třída pro logo-box: na tmavém pozadí (!isScrolled) je bílý (inverted), na světlém (isScrolled) je černý */}
+              <div className={`logo-box ${!isScrolled ? 'logo-box-inverted' : ''}`}>
                 M
                 <div className="logo-dot"></div>
               </div>

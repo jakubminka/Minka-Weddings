@@ -11,7 +11,7 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <iframe
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh]"
-          src="https://www.youtube.com/embed/hOwasRUDmsc?autoplay=1&mute=1&controls=0&loop=1&playlist=hOwasRUDmsc&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1"
+          src={`https://www.youtube.com/embed/${SITE_TEXTS.hero.heroVideoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${SITE_TEXTS.hero.heroVideoId}&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1`}
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen

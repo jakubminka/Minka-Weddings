@@ -6,7 +6,7 @@ import LegalModal from './LegalModal';
 
 const Contact: React.FC = () => {
   const [formState, setFormState] = useState<'idle' | 'sending' | 'success'>('idle');
-  const [legalView, setLegalView] = useState<'vop' | 'gdpr' | null>(null);
+  const [legalView, setLegalView] = useState<'vop' | 'gdpr' | 'cookies' | null>(null);
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -65,7 +65,7 @@ const Contact: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {OTHER_PROJECTS.map((site) => (
                   <a key={site.name} href={site.url} target="_blank" rel="noopener" className="flex items-center gap-3 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all border border-white/5 group">
-                    <div className="logo-box logo-box-mono !w-8 !h-8 !text-base" aria-hidden="true">
+                    <div className="logo-box logo-box-inverted !w-8 !h-8 !text-base" aria-hidden="true">
                       {site.letter}
                       <div className="logo-dot !w-2 !h-2"></div>
                     </div>

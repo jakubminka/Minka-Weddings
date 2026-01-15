@@ -4,12 +4,16 @@ import { Camera, Heart, Users, Star } from 'lucide-react';
 import { SITE_TEXTS } from '../constants';
 
 const About: React.FC = () => {
-  const stats = [
-    { icon: <Heart className="text-ochre" aria-hidden="true" />, value: '150+', label: 'Párů' },
-    { icon: <Camera className="text-ochre" aria-hidden="true" />, value: '8 let', label: 'Praxe' },
-    { icon: <Users className="text-ochre" aria-hidden="true" />, value: '100%', label: 'Spolehlivost' },
-    { icon: <Star className="text-ochre" aria-hidden="true" />, value: '4K', label: 'Výstup' },
-  ];
+  // Mapování ID na ikony
+  const getIcon = (id: string) => {
+    switch (id) {
+      case 'couples': return <Heart className="text-ochre" aria-hidden="true" />;
+      case 'experience': return <Camera className="text-ochre" aria-hidden="true" />;
+      case 'reliability': return <Users className="text-ochre" aria-hidden="true" />;
+      case 'quality': return <Star className="text-ochre" aria-hidden="true" />;
+      default: return <Star className="text-ochre" aria-hidden="true" />;
+    }
+  };
 
   return (
     <section id="o-mne" className="py-24 bg-white overflow-hidden" aria-labelledby="about-title">
@@ -18,8 +22,8 @@ const About: React.FC = () => {
           <div className="lg:w-1/2 relative">
             <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl grayscale hover:grayscale-0 transition-all duration-700">
               <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800&h=1000" 
-                alt="Jakub Minka - Svatební kameraman pro Prahu a Jižní Čechy" 
+                src={SITE_TEXTS.about.profileImage} 
+                alt="Jakub Minka - Svatební kameraman" 
                 className="w-full h-auto"
                 loading="lazy"
                 width="800"
@@ -45,9 +49,9 @@ const About: React.FC = () => {
             </article>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 bg-stone-50 p-8 rounded-2xl">
-              {stats.map((stat, idx) => (
-                <div key={idx} className="text-center">
-                  <div className="flex justify-center mb-2">{stat.icon}</div>
+              {SITE_TEXTS.about.stats.map((stat) => (
+                <div key={stat.id} className="text-center">
+                  <div className="flex justify-center mb-2">{getIcon(stat.id)}</div>
                   <div className="text-2xl font-bold text-stone-900">{stat.value}</div>
                   <div className="text-[10px] uppercase tracking-wider text-stone-500 font-bold">{stat.label}</div>
                 </div>
