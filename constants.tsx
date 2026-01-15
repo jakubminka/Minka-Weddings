@@ -21,7 +21,6 @@ export const SITE_TEXTS = {
     p2: "Specializuji se na filmové záběry ze svateb a působím především v těchto lokalitách: Praha, Středočeský kraj, Vysočina a Jihočeský kraj. Jinak za vámi ale dojedu téměř kamkoliv.",
     profileImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800&h=1000",
     stats: [
-      { id: 'couples', value: '150+', label: 'Párů' },
       { id: 'experience', value: '8 let', label: 'Praxe' },
       { id: 'reliability', value: '100%', label: 'Spolehlivost' },
       { id: 'quality', value: '4K', label: 'Výstup' },
@@ -29,14 +28,14 @@ export const SITE_TEXTS = {
   },
   contact: {
     label: "Rezervujte si termín",
-    title: "Pojďme tvořit spolu",
-    description: "Máte dotaz nebo chcete zjistit dostupnost ve váš den? Rád s vámi proberu detaily vaší svatby v Praze, Středních Čechách, na Vysočině či v Jižních Čechách.",
-    email: "info@jakubminka.cz",
-    phone: "+420 777 000 000",
+    title: "Váš příběh mýma očima",
+    description: "Máte dotaz nebo chcete zjistit dostupnost ve váš den? Rád s vámi proberu detaily vaší svatby.",
+    email: "svatba@jakubminka.cz",
+    phone: "+420 731 055 983",
     locations: "Praha, Střední Čechy, Vysočina, Jižní Čechy"
   },
   pricing: {
-    note: "* Neobsahuje cestovné (8 Kč/km z Prahy nebo Ostravy). Možnost individuální úpravy balíčků na míru."
+    note: "* Cestovné nad 50 km je účtováno 10 Kč/km z Vlašimi nebo z Pelhřimova. Možnost individuální úpravy balíčků na míru."
   },
   cookies: {
     bannerTitle: "Tento web používá cookies 🍪",
@@ -48,7 +47,7 @@ export const LEGAL_CONTENT = {
   vop: {
     title: 'Všeobecné obchodní podmínky',
     sections: [
-      { h: '1. Úvodní ustanovení', p: 'Tyto obchodní podmínky platí pro poskytování služeb svatebního kameramana Jakub Minka.' },
+      { h: '1. Úvodní ustanovení', p: 'Tyto obchodní podmínky platí pro poskytování služeb svatebního kameramana Jakuba Minky.' },
       { h: '2. Rezervace a platba', p: 'Rezervace termínu je závazná po úhradě nevratného rezervačního poplatku.' }
     ]
   },
@@ -69,18 +68,50 @@ export const LEGAL_CONTENT = {
 export const VIDEO_PROJECTS: VideoProject[] = [
   {
     id: '1',
-    title: 'Anna & Petr',
-    location: 'Zámek Blatná',
-    thumbnail: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    title: 'Monika & Štěpán',
+    location: 'Střížovický dvůr',
+    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://youtu.be/LnO9Q5KK_SU',
     category: 'highlight'
   },
   {
     id: '2',
-    title: 'Lucie & Marek',
-    location: 'Vinařství Sonberk',
+    title: 'Terka & Pepa',
+    location: 'Penzion u Farmáře',
     thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    videoUrl: 'https://youtu.be/9wx1Beq_uqA',
+    category: 'highlight'
+  },
+  {
+    id: '3',
+    title: 'Kristýna & Martin',
+    location: 'Stodola Holašovice',
+    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://youtu.be/b6TIWjVYD4k',
+    category: 'highlight'
+  },
+  {
+    id: '4',
+    title: 'Jana & Žiga',
+    location: 'Penzion Na Kmíně',
+    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://youtu.be/35DuSZauEjY',
+    category: 'highlight'
+  },
+  {
+    id: '5',
+    title: 'Nikolka & Pepa',
+    location: 'Pesort Klášter Želiv',
+    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://youtu.be/t_1xysZwdqE',
+    category: 'highlight'
+  },
+   {
+    id: '6',
+    title: 'Tomáš & Radka',
+    location: 'Váňův statek',
+    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://youtu.be/lg22S8ROi5o',
     category: 'highlight'
   }
 ];
