@@ -159,24 +159,53 @@ export const OTHER_PROJECTS = [
   { name: "Minka aerials", brand: "aerials", sub: "Foto a video dronem", url: "https://minkaaerials.cz", letter: "M" }
 ];
 
+// Upravená struktura pro rozvětvené texty
 export const LEGAL_CONTENT = {
   vop: {
     title: 'Všeobecné obchodní podmínky',
     sections: [
-      { h: '1. Úvodní ustanovení', p: 'Tyto obchodní podmínky platí pro poskytování služeb svatebního kameramana Jakub Minka.' },
-      { h: '2. Rezervace a platba', p: 'Rezervace termínu je závazná po úhradě nevratného rezervačního poplatku.' }
+      { 
+        h: '1. Úvodní ustanovení', 
+        paragraphs: ['Tyto obchodní podmínky platí pro poskytování služeb svatebního kameramana Jakub Minka.', 'Podmínky blíže vymezují a upřesňují práva a povinnosti poskytovatele a klienta.'] 
+      },
+      { 
+        h: '2. Rezervace a platba', 
+        paragraphs: ['Rezervace termínu je závazná po úhradě nevratného rezervačního poplatku.'],
+        bullets: [
+          'Rezervační poplatek činí 30% z celkové ceny balíčku.',
+          'Doplatek je splatný nejpozději v den svatby nebo dle dohody.',
+          'V případě zrušení termínu klientem se rezervační poplatek nevrací.'
+        ]
+      },
+      {
+        h: '3. Autorská práva',
+        paragraphs: ['Kameraman si vyhrazuje právo na užití díla pro vlastní propagaci (web, sociální sítě), pokud není dohodnuto jinak.']
+      }
     ]
   },
   gdpr: {
     title: 'Ochrana osobních údajů',
     sections: [
-      { h: '1. Správce údajů', p: 'Správcem vašich osobních údajů je Jakub Minka. Vaše údaje používám pouze pro účely plnění smlouvy.' }
+      { 
+        h: '1. Správce údajů', 
+        paragraphs: ['Správcem vašich osobních údajů je Jakub Minka.', 'Vaše údaje používám pouze pro účely plnění smlouvy a komunikaci s vámi.'] 
+      },
+      {
+        h: '2. Rozsah zpracování',
+        bullets: [
+          'Jméno a příjmení',
+          'E-mailová adresa a telefonní číslo',
+          'Informace o místě a čase konání svatby',
+          'Obrazové záznamy osob'
+        ]
+      }
     ]
   },
   cookies: {
     title: 'Informace o souborech Cookies',
     sections: [
-      { h: 'Co jsou cookies?', p: 'Cookies jsou malé textové soubory, které nám pomáhají analyzovat návštěvnost webu a zlepšovat jeho funkčnost.' }
+      { h: 'Co jsou cookies?', paragraphs: ['Cookies jsou malé textové soubory, které nám pomáhají analyzovat návštěvnost webu a zlepšovat jeho funkčnost.'] }
     ]
   }
+};
 };
