@@ -202,6 +202,32 @@ export const LEGAL_CONTENT = {
           ]}
         ]
       }
+      {
+        h: '5. Archivace a surový materiál',
+        items: [
+          { type: 'ul', bullets: [
+            'Hotové video: Kameraman uchovává finální vyexportované video po neomezenou dobu.',
+            'Surový materiál: Neupravené záběry jsou archivovány po dobu 2 let.',
+            'Poskytnutí surových záběrů: Standardně se surový materiál neodevzdává. Jeho poskytnutí je možné pouze na základě předchozí dohody a může být zpoplatněno dle aktuálního ceníku.'
+          ]}
+        ]
+      }
+      {
+        h: '6. Autorská práva',
+        items: [
+          { type: 'ul', bullets: [
+            'Klient souhlasí s autorským stylem kameramana. Kameraman si vyhrazuje právo použít ukázky z díla pro svou prezentaci, pokud není dohodnuto jinak.'
+          ]}
+        ]
+      }
+      {
+        h: '6. Odstoupení od smlouvy',
+        items: [
+          { type: 'ul', bullets: [
+            'Při zrušení termínu ze strany klienta rezervační poplatek propadá. Při nemožnosti plnění ze strany kameramana se kameraman pokusí zajistit náhradu nebo vrátí poplatek.'
+          ]}
+        ]
+      }
     ]
   },
   gdpr: {
