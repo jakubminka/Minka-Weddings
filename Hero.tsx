@@ -1,21 +1,22 @@
 import React from 'react';
 import { Play, ChevronDown } from 'lucide-react';
-import { SITE_TEXTS } from '../constants';
+import { SITE_TEXTS } from './constants';
 
 const Hero: React.FC = () => {
+  const videoId = "a9FW0dNSwYE";
+  
   return (
     <div className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
       {/* Overlay pro lepší čitelnost textu */}
-      <div className="absolute inset-0 bg-black/30 z-10 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-black/40 z-10 pointer-events-none"></div>
       
       {/* Video Background */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <iframe
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] scale-105"
-          src={`https://www.youtube.com/embed/${SITE_TEXTS.hero.heroVideoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${SITE_TEXTS.hero.heroVideoId}&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&origin=${window.location.origin}`}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] scale-[1.15]"
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${videoId}&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1`}
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
         ></iframe>
       </div>
 

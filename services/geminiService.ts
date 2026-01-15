@@ -3,17 +3,12 @@ import { GoogleGenAI } from "@google/genai";
 import { ChatMessage } from "../types";
 import { SITE_TEXTS, PRICING_PACKAGES } from "../constants";
 
+/**
+ * Communicates with the Gemini model to provide wedding-related assistance
+ */
 export async function getWeddingStylistResponse(prompt: string, history: ChatMessage[]): Promise<string> {
-  // Ve Vite se k env proměnným přistupuje přes define ve vite.config.ts nebo import.meta.env
-  // Ale díky naší konfiguraci ve vite.config.ts bude process.env.API_KEY fungovat
-  const apiKey = (process.env as any).API_KEY;
-  
-  if (!apiKey) {
-    console.warn("Gemini API Key is missing.");
-    return "Omlouvám se, asistent je momentálně nedostupný. Kontaktujte prosím Jakuba přímo.";
-  }
-
-  const ai = new GoogleGenAI({ apiKey });
+  // Always initialize with the direct process.env.API_KEY reference as per strict guidelines
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
   try {
     const systemInstruction = `
@@ -25,11 +20,13 @@ export async function getWeddingStylistResponse(prompt: string, history: ChatMes
       Odpovídej v češtině, stručně a pomáhej klientům s dotazy na služby.
     `;
 
+    // Map conversation history to Gemini parts format
     const contents = history.map(msg => ({
       role: (msg.role === 'assistant' ? 'model' : 'user') as 'user' | 'model',
       parts: [{ text: msg.content }]
     }));
 
+    // Append the latest user query
     contents.push({
       role: 'user',
       parts: [{ text: prompt }]
@@ -44,9 +41,10 @@ export async function getWeddingStylistResponse(prompt: string, history: ChatMes
       },
     });
 
+    // Access the text property directly (do not call as a function)
     return response.text || "Zkuste prosím dotaz zformulovat jinak.";
   } catch (error) {
     console.error("Gemini Error:", error);
-    return "Omlouvám se, došlo k technické chybě.";
+    return "Omlouvám se, došlo k technické chybě. Pro rychlou odpověď mě prosím kontaktujte přímo.";
   }
 }

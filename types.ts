@@ -22,7 +22,9 @@ export interface PricingPackage {
   recommended?: boolean;
 }
 
-// Added ChatMessage interface for the Gemini-powered AI Assistant
+/**
+ * Represents a single message in the chat conversation
+ */
 export interface ChatMessage {
   role: 'user' | 'assistant';
   content: string;

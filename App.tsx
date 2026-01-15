@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
+import Hero from './Hero';
 import Portfolio from './components/Portfolio';
 import About from './components/About';
 import FAQ from './components/FAQ';
@@ -49,7 +49,7 @@ const App: React.FC = () => {
               </div>
             </div>
           </div>
-          <p className="mb-10 max-w-sm mx-auto text-sm leading-relaxed">
+          <p className="mb-10 max-w-sm mx-auto text-sm leading-relaxed text-stone-400">
             Zachycuji nejkrásnější příběhy vašeho života s úctou k emocím a přirozenosti. Působím v Praze, Středních Čechách, na Vysočině a v Jižních Čechách.
           </p>
           <div className="flex flex-wrap justify-center gap-6 text-[10px] font-bold uppercase tracking-widest mb-12">
