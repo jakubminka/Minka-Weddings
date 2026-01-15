@@ -4,24 +4,13 @@ import { Play, ChevronDown } from 'lucide-react';
 import { SITE_TEXTS } from './constants';
 
 const Hero: React.FC = () => {
-  const customVideoUrl = "https://gfdymyfjycowdedllodd.supabase.co/storage/v1/object/public/media/header.mp4"; 
+  const customVideoUrl = ""; 
   const youtubeVideoId = SITE_TEXTS.hero.youtubeVideoId;
 
-  // Sestavení URL s parametry, které jsou méně náchylné k blokování
+  // Používáme standardní youtube.com s parametrem origin
   const getHeroVideoUrl = () => {
-    const params = new URLSearchParams({
-      autoplay: '1',
-      mute: '1',
-      controls: '0',
-      loop: '1',
-      playlist: youtubeVideoId,
-      rel: '0',
-      playsinline: '1',
-      enablejsapi: '1',
-      origin: window.location.origin,
-      widget_referrer: window.location.origin
-    });
-    return `https://www.youtube.com/embed/${youtubeVideoId}?${params.toString()}`;
+    const origin = window.location.origin;
+    return `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&loop=1&playlist=${youtubeVideoId}&controls=0&playsinline=1&rel=0&modestbranding=1&origin=${encodeURIComponent(origin)}`;
   };
 
   return (
