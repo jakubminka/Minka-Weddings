@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Primární - Regionální cílení -->
+    <title>Jakub Minka | Svatební kameraman Praha, Střední Čechy, Vysočina & Jižní Čechy</title>
+    <meta name="description" content="Profesionální svatební kameraman Jakub Minka. Působím především v Praze, Středočeském kraji, na Vysočině a v Jižních Čechách. Filmové svatební video v 4K kvalitě." />
+    <meta name="keywords" content="svatební kameraman Praha, svatební video Středočeský kraj, kameraman na svatbu Vysočina, svatební film Jižní Čechy, Jakub Minka, video ze svatby" />
+    <meta name="author" content="Jakub Minka" />
+    <link rel="canonical" href="https://www.jakubminka.cz" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.jakubminka.cz/" />
+    <meta property="og:title" content="Jakub Minka | Svatební kameraman Praha & okolí" />
+    <meta property="og:description" content="Zachyťte svůj den filmově v Praze, Středních Čechách, na Vysočině či v Jižních Čechách." />
+    <meta property="og:image" content="https://www.jakubminka.cz/og-image.jpg" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data (Schema.org) s důrazem na lokality -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Jakub Minka - Svatební kameraman",
+      "image": "https://www.jakubminka.cz/logo.png",
+      "@id": "https://www.jakubminka.cz",
+      "url": "https://www.jakubminka.cz",
+      "telephone": "+420777000000",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Praha",
+        "addressCountry": "CZ"
+      },
+      "areaServed": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "Praha"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Středočeský kraj"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Kraj Vysočina"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Jihočeský kraj"
+        }
+      ],
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.0755,
+        "longitude": 14.4378
+      }
+    }
+    </script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ochre: '#b9914d',
+              'ochre-dark': '#94743e',
+              'ochre-light': '#d1ad70',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      h1, h2, h3, h4, .serif-font {
+        font-family: 'Playfair Display', serif;
+      }
+      section {
+        scroll-margin-top: 80px;
+      }
+      .logo-box {
+        background-color: #000;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: 800;
+        font-size: 22px;
+        flex-shrink: 0;
+        position: relative;
+      }
+      .logo-dot {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 8px;
+        height: 8px;
+        background-color: #b9914d;
+      }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.36.0",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2",
+    "vite": "https://esm.sh/vite@^7.3.1"
+  }
+}
+</script>
+  </head>
+  <body class="bg-stone-50 text-stone-900">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
