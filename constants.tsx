@@ -95,35 +95,63 @@ export const PRICING_PACKAGES: PricingPackage[] = [
 export const VIDEO_PROJECTS: VideoProject[] = [
   {
     id: '1',
-    title: 'Anna & Petr',
-    location: 'Zámek Blatná',
-    thumbnail: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    title: 'Monika & Štěpán',
+    location: 'Střížovický dvůr',
+    thumbnail: 'https://gfdymyfjycowdedllodd.supabase.co/storage/v1/object/public/media/Monika_stepan_strizovicky_dvur.jpg?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://youtu.be/LnO9Q5KK_SU',
     category: 'highlight'
   },
   {
     id: '2',
-    title: 'Lucie & Marek',
-    location: 'Vinařství Sonberk',
-    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    title: 'Kristýna & Martin',
+    location: 'Stodola Holašovice',
+    thumbnail: 'https://gfdymyfjycowdedllodd.supabase.co/storage/v1/object/public/media/Kristyna_Martin_stodola_holasovice.jpg?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://youtu.be/b6TIWjVYD4k',
     category: 'highlight'
   },
   {
     id: '3',
-    title: 'Kateřina & Jan',
-    location: 'Villa Richter',
-    thumbnail: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=800',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    title: 'Terka & Pepa',
+    location: 'Penzion U Farmáře',
+    thumbnail: 'https://gfdymyfjycowdedllodd.supabase.co/storage/v1/object/public/media/Terka_Pepa_penzion-u-farmare.jpg?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://youtu.be/9wx1Beq_uqA',
+    category: 'highlight'
+  },
+  {
+    id: '4',
+    title: 'Jana & Žiga',
+    location: 'Penzion Na Kmíně',
+    thumbnail: 'https://gfdymyfjycowdedllodd.supabase.co/storage/v1/object/public/media/Jana_Ziga_penzion_na_kmine.jpg?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://youtu.be/35DuSZauEjY',
+    category: 'highlight'
+  }
+  ,
+  {
+    id: '5',
+    title: 'Nikolka & Pepa',
+    location: 'Resort Klášter Želiv',
+    thumbnail: 'https://gfdymyfjycowdedllodd.supabase.co/storage/v1/object/public/media/Nikolka_Pepa_Resort_Zeliv.jpg?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://youtu.be/t_1xysZwdqE',
+    category: 'highlight'
+  }
+  ,
+  {
+    id: '6',
+    title: 'Radka & Tomáš',
+    location: 'Váňův statek',
+    thumbnail: 'https://gfdymyfjycowdedllodd.supabase.co/storage/v1/object/public/media/Nikolka_Pepa_Resort_Zeliv.jpg?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://youtu.be/lg22S8ROi5o',
     category: 'highlight'
   }
 ];
 
 export const FAQ_DATA = [
-  { question: "Jak dlouho dopředu si máme rezervovat termín?", answer: "Svatební sezóna se plní rychle, proto doporučuji rezervaci 6-12 měsíců předem, zejména pro sobotní termíny v létě." },
-  { question: "Jaká je délka natáčení?", answer: "Všechny mé standardní balíčky obsahují 12 hodin natáčení, což obvykle pokrývá vše od příprav až po večerní zábavu." },
+  { question: "Jak dlouho dopředu si máme rezervovat termín?", answer: "Doporučuji rezervaci 6-12 měsíců předem, zejména pro sobotní termíny v létě. Jinak se může stát, že nejžádanější termíny budou již obsazené." },
+  { question: "Jak probíhá objednání?", answer: "Ideální je nezávazně poptat termín vyplněním kontaktního formuláře níže, případně emailem či po telefonu. Následně vám termín potvrdím a uhradíte rezervační poplatek ve výši 30% z ceny balíčku. V tuto chvíli již s vámi počítám a můžeme probrat podrobnosti." },
+  { question: "Jaký balíček si máme zvolit?", answer: "V základní variantě na 8 hodin v dostáváte svatební klip o délce 3-5 minut. Vhodné na kratší svatby, kde zábava nepokračuje do večerních hodin nebo kde se natáčecí den zahajuje obřadem. V rozšířené variantě na 12 hodin budu na místě po celý den. Tato varianta je ideální na většinu svateb. V Exclusiv variantě nabízím i střih reportážního dokumentu o délce 10-20 minut, kde se kromě nanželského páru objeví i ostatní svatební hosté a také většina aktivit v průběhu celého dne. },
   { question: "Kdy obdržíme hotové video?", answer: "Zpracování videa je precizní proces. Highlight filmy odevzdávám standardně do 4-8 týdnů v závislosti na sezóně." },
-  { question: "Natáčíte i s dronem?", answer: "Ano, pokud to počasí a lokalita dovolují, záběry z dronu jsou součástí balíčků Premium a Exclusive." }
+  { question: "Natáčíte i s dronem?", answer: "Ano, pokud to počasí a lokalita dovolují, záběry z dronu jsou součástí všech balíčků." },
+  { question: "Natáčíte i s dronem?", answer: "Ano, pokud to počasí a lokalita dovolují, záběry z dronu jsou součástí všech balíčků." }
 ];
 
 export const OTHER_PROJECTS = [
