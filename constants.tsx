@@ -8,7 +8,7 @@ export const SITE_TEXTS = {
     label: "Svatební filmy • Jakub Minka",
     title: "Příběhy,",
     titleItalic: "které ožívají",
-    description: "Zachyťte kouzlo okamžiku. Tvořím svatební videa, která v sobě nesou emoce, přirozenost a filmovou atmosféru.",
+    description: "Tvořím svatební videa, která v sobě nesou emoce, přirozenost a filmovou atmosféru.",
     ctaPrimary: "Zhlédnout filmy",
     ctaSecondary: "Rezervovat termín",
     // Nové video: https://youtu.be/a9FW0dNSwYE
@@ -16,9 +16,9 @@ export const SITE_TEXTS = {
   },
   about: {
     label: "Kdo stojí za kamerou",
-    title: "Ahoj, jsem Jakub Minka",
-    p1: "Věřím, že svatební video by mělo být víc než jen záznam dne. Moje práce jako svatebního kameramana je o detailech, které jiným uniknou, a o příběhu, který dýchá i po letech.",
-    p2: "Specializuji se na filmové záběry ze svateb a působím především v těchto lokalitách: Praha, Středočeský kraj, Vysočina a Jihočeský kraj. Tato místa znám dokonale a vím, jak v nich zachytit to nejlepší světlo a atmosféru.",
+    title: "Ahoj, já jsem Jakub Minka",
+    p1: "Věřím, že svatební video by mělo být víc než jen záznam dne. Moje práce jako svatebního kameramana je o detailech a o příběhu, který dýchá i po letech.",
+    p2: "Specializuji se na filmové záběry ze svateb a působím především v těchto lokalitách: Praha, Středočeský kraj, Vysočina a Jihočeský kraj. Jinak za vámi ale dojedu téměř kamkoliv.",
     profileImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800&h=1000",
     stats: [
       { id: 'couples', value: '150+', label: 'Párů' },
