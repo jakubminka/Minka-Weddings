@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -9,7 +8,6 @@ import Pricing from './components/Pricing';
 import Contact from './components/Contact';
 import CookieConsent from './components/CookieConsent';
 import LegalModal from './components/LegalModal';
-import AIStylist from './components/AIStylist';
 
 const App: React.FC = () => {
   const [legalView, setLegalView] = useState<'vop' | 'gdpr' | 'cookies' | null>(null);
@@ -25,8 +23,6 @@ const App: React.FC = () => {
         <Pricing />
         <Contact />
       </main>
-      
-      <AIStylist />
       
       <CookieConsent onShowDetails={() => setLegalView('cookies')} />
       
