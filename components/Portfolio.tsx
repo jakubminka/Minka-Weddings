@@ -19,6 +19,26 @@ const Portfolio: React.FC = () => {
     }
   }, [selectedVideo]);
 
+  // Funkce pro zajištění správného embed formátu YouTube URL
+  const getEmbedUrl = (url: string) => {
+    if (!url) return '';
+    
+    // Pokud je to už embed formát, jen vrátíme
+    if (url.includes('youtube.com/embed/')) {
+      return url.split('?')[0]; // Odstraníme případné stávající parametry pro čistý základ
+    }
+
+    // Regulární výraz pro zachycení ID videa z různých typů YouTube odkazů
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+    
+    if (match && match[2].length === 11) {
+      return `https://www.youtube.com/embed/${match[2]}`;
+    }
+    
+    return url;
+  };
+
   return (
     <section id="portfolio" className="py-24 bg-stone-50" aria-labelledby="portfolio-title">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,7 +95,14 @@ const Portfolio: React.FC = () => {
             <X size={40} />
           </button>
           <div className="relative w-full max-w-5xl aspect-video rounded-2xl overflow-hidden shadow-2xl" onClick={(e) => e.stopPropagation()}>
-            <iframe src={`${selectedVideo}?autoplay=1`} title="Svatební video Jakub Minka" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen className="absolute inset-0 w-full h-full"></iframe>
+            <iframe 
+              src={`${getEmbedUrl(selectedVideo)}?autoplay=1&rel=0&modestbranding=1`} 
+              title="Svatební video Jakub Minka" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              allowFullScreen 
+              className="absolute inset-0 w-full h-full"
+            ></iframe>
           </div>
         </div>
       )}
