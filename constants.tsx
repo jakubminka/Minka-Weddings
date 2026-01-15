@@ -164,7 +164,10 @@ export const LEGAL_CONTENT = {
     title: 'Všeobecné obchodní podmínky',
     sections: [
       { h: '1. Úvodní ustanovení', p: 'Tyto VOP upravují vztah mezi kameramanem Jakubem Minkou a klientem. Smluvní vztah vzniká potvrzením rezervace a zaplacením rezervačního poplatku.' },
-      { h: '2. Rezervace a platba', p: 'Rezervační poplatek: Pro závaznou rezervaci termínu hradí klient poplatek ve výši 30 % z celkové ceny. Tento poplatek je nevratný.', p: 'Doplatek: Zbývajících 70 % z ceny je splatných po odevzdání hotového díla (převodem na účet).', }
+      { h: '2. Rezervace a platba', p: 'Rezervační poplatek: Pro závaznou rezervaci termínu hradí klient poplatek ve výši 30 % z celkové ceny. Tento poplatek je nevratný.', 
+       p: 'Doplatek: Zbývajících 70 % z ceny je splatných po odevzdání hotového díla (převodem na účet).',
+       p: 'Přesčasy: Pokud se natáčení protáhne nad rámec sjednaného balíčku, klient hradí každou další započatou hodinu dle aktuálního ceníku. Překročení délky natáčení do 60 minut je tolerováno a není účtováno.',
+      }
     ]
   },
   gdpr: {
