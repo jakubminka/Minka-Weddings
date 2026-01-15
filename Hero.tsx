@@ -7,12 +7,27 @@ const Hero: React.FC = () => {
   const customVideoUrl = ""; 
   const youtubeVideoId = SITE_TEXTS.hero.youtubeVideoId;
 
+  // Sestavení URL s parametry, které jsou méně náchylné k blokování
+  const getHeroVideoUrl = () => {
+    const params = new URLSearchParams({
+      autoplay: '1',
+      mute: '1',
+      controls: '0',
+      loop: '1',
+      playlist: youtubeVideoId,
+      rel: '0',
+      playsinline: '1',
+      enablejsapi: '1',
+      origin: window.location.origin,
+      widget_referrer: window.location.origin
+    });
+    return `https://www.youtube.com/embed/${youtubeVideoId}?${params.toString()}`;
+  };
+
   return (
     <div className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
-      {/* Overlay pro filmový nádech a čitelnost */}
       <div className="absolute inset-0 bg-stone-950/40 z-10 pointer-events-none"></div>
       
-      {/* Video Background Container */}
       <div className="absolute inset-0 z-0 overflow-hidden no-interact">
         {customVideoUrl ? (
           <video 
@@ -27,7 +42,7 @@ const Hero: React.FC = () => {
         ) : (
           <iframe
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[115vw] h-[65vw] min-h-[110vh] min-w-[195vh] scale-110 opacity-70"
-            src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${youtubeVideoId}&rel=0&playsinline=1&modestbranding=1`}
+            src={getHeroVideoUrl()}
             frameBorder="0"
             allow="autoplay; encrypted-media; gyroscope; picture-in-picture"
             title="Svatební video pozadí"
