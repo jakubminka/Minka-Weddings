@@ -15,8 +15,8 @@ const LegalModal = ({ isOpen, onClose, type }: LegalModalProps) => {
   const active = LEGAL_CONTENT[type as keyof typeof LEGAL_CONTENT];
 
   return (
-    <div className="fixed inset-0 z-[250] flex items-center justify-center p-4 md:p-8">
-      <div className="absolute inset-0 bg-stone-950/80 backdrop-blur-sm" onClick={onClose}></div>
+    <div className="fixed inset-0 z-[10000] flex items-center justify-center p-4 md:p-8">
+      <div className="absolute inset-0 bg-stone-950/90 backdrop-blur-sm" onClick={onClose}></div>
       <div className="relative bg-white w-full max-w-3xl max-h-[85vh] overflow-y-auto rounded-3xl shadow-2xl p-8 md:p-12 animate-in zoom-in-95 duration-300">
         <button 
           onClick={onClose}
@@ -31,12 +31,12 @@ const LegalModal = ({ isOpen, onClose, type }: LegalModalProps) => {
           <h2 className="text-3xl md:text-4xl font-bold serif-font text-stone-900">{active.title}</h2>
         </div>
 
-        <div className="space-y-10">
+        <div className="space-y-12">
           {active.sections.map((s, i) => (
             <div key={i} className="animate-in fade-in slide-in-from-bottom-2 duration-500" style={{ animationDelay: `${i * 100}ms` }}>
-              <h3 className="text-lg font-bold text-stone-900 mb-4 pb-2 border-b border-stone-50">{s.h}</h3>
+              <h3 className="text-lg font-bold text-stone-900 mb-5 pb-2 border-b border-stone-100">{s.h}</h3>
               
-              <div className="space-y-4">
+              <div className="space-y-5">
                 {s.items.map((item, index) => (
                   <React.Fragment key={index}>
                     {item.type === 'p' ? (
@@ -44,10 +44,10 @@ const LegalModal = ({ isOpen, onClose, type }: LegalModalProps) => {
                         {item.text}
                       </p>
                     ) : (
-                      <ul className="space-y-3 ml-4">
+                      <ul className="space-y-4 ml-4">
                         {item.bullets?.map((bullet, bi) => (
                           <li key={bi} className="text-stone-600 text-sm leading-relaxed flex gap-3">
-                            <span className="text-ochre font-bold shrink-0">•</span>
+                            <span className="text-ochre font-bold shrink-0 mt-1">•</span>
                             <span>{bullet}</span>
                           </li>
                         ))}
