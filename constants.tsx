@@ -22,7 +22,7 @@ export const SITE_TEXTS = {
     p2: "Specializuji se na filmové záběry ze svateb a působím především v Praze, ve Středočeském kraji, na Vysočině a v Jižních Čechách, ale dojedu za vámi kamkoliv.",
     profileImage: "https://gfdymyfjycowdedllodd.supabase.co/storage/v1/object/public/media/A7309815.webp?auto=format&fit=crop&q=80&w=800&h=1000",
     stats: [
-      { id: 'couples', value: '40+', label: 'Svateb' },
+      { id: 'couples', value: 'desitky', label: 'svateb' },
       { id: 'experience', value: '8 let', label: 'Praxe' },
       { id: 'reliability', value: '100%', label: 'Spolehlivost' },
       { id: 'quality', value: '4K', label: 'Výstup' },
