@@ -12,8 +12,8 @@ export const SITE_TEXTS = {
     description: "Zachyťte kouzlo okamžiku. Tvořím svatební videa, která v sobě nesou emoce, přirozenost a filmovou atmosféru.",
     ctaPrimary: "Zhlédnout filmy",
     ctaSecondary: "Rezervovat termín",
-    // ID videa z YouTube (to co je v URL za v=)
-    heroVideoId: "hOwasRUDmsc" 
+    // Nové ID videa z YouTube (a9FW0dNSwYE)
+    heroVideoId: "a9FW0dNSwYE" 
   },
   about: {
     label: "Kdo stojí za kamerou",
