@@ -21,12 +21,13 @@ const App: React.FC = () => {
         <Hero />
         <About />
         <Portfolio />
-        {/* Sekce prohozeny: Ceník je nyní před FAQ */}
+        {/* Požadované prohození: Ceník (Pricing) je před Častými dotazy (FAQ) */}
         <Pricing />
         <FAQ />
         <Contact />
       </main>
       
+      {/* Cookie lišta má nyní z-index 9999 pro zajištění viditelnosti */}
       <CookieConsent onShowDetails={() => setLegalView('cookies')} />
       
       <LegalModal 
