@@ -34,8 +34,9 @@ const Portfolio: React.FC = () => {
     }
 
     if (videoId) {
-      // Pro portfoliová videa dáváme minimum parametrů pro největší stabilitu
-      return `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1&enablejsapi=1`;
+      // DŮLEŽITÉ: Žádný parametr "mute=1", aby video hrálo se zvukem.
+      // Používáme youtube-nocookie pro ochranu před hláškou o ověření robota.
+      return `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1&modestbranding=1`;
     }
     return url;
   };
