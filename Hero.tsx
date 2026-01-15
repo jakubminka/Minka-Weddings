@@ -26,9 +26,9 @@ const Hero: React.FC = () => {
         ) : (
           <iframe
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[115vw] h-[65vw] min-h-[110vh] min-w-[195vh] scale-110 opacity-70"
-            src={`https://www.youtube-nocookie.com/embed/${youtubeVideoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${youtubeVideoId}&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablejsapi=1&origin=${window.location.origin}`}
+            src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${youtubeVideoId}&rel=0&playsinline=1&modestbranding=1`}
             frameBorder="0"
-            allow="autoplay; encrypted-media"
+            allow="autoplay; encrypted-media; gyroscope; picture-in-picture"
           ></iframe>
         )}
       </div>
