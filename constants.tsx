@@ -1,41 +1,65 @@
 import { VideoProject, Testimonial, PricingPackage } from './types';
 
 /**
- * ZDE UPRAVUJTE TEXTY A PARAMETRY WEBU
+ * ZDE UPRAVUJTE VEŠKERÉ TEXTY NA STRÁNCE
  */
 export const SITE_TEXTS = {
   hero: {
     label: "Svatební filmy • Jakub Minka",
     title: "Příběhy,",
     titleItalic: "které ožívají",
-    description: "Tvořím svatební videa, která v sobě nesou emoce, přirozenost a filmovou atmosféru.",
+    description: "Zachyťte kouzlo okamžiku. Tvořím svatební videa, která v sobě nesou emoce, přirozenost a filmovou atmosféru.",
     ctaPrimary: "Zhlédnout filmy",
     ctaSecondary: "Rezervovat termín",
-    // Nové video: https://youtu.be/a9FW0dNSwYE
+    // Pokud chcete vlastní video, vložte URL do Hero.tsx (viz komentáře tam)
     heroVideoId: "a9FW0dNSwYE" 
   },
   about: {
     label: "Kdo stojí za kamerou",
-    title: "Ahoj, já jsem Jakub Minka",
-    p1: "Věřím, že svatební video by mělo být víc než jen záznam dne. Moje práce jako svatebního kameramana je o detailech a o příběhu, který dýchá i po letech.",
-    p2: "Specializuji se na filmové záběry ze svateb a působím především v těchto lokalitách: Praha, Středočeský kraj, Vysočina a Jihočeský kraj. Jinak za vámi ale dojedu téměř kamkoliv.",
+    title: "Ahoj, jsem Jakub Minka",
+    p1: "Věřím, že svatební video by mělo být víc než jen záznam dne. Moje práce jako svatebního kameramana je o detailech, které jiným uniknou, a o příběhu, který dýchá i po letech.",
+    p2: "Specializuji se na filmové záběry ze svateb a působím především v těchto lokalitách: Praha, Středočeský kraj, Vysočina a Jihočeský kraj. Tato místa znám dokonale a vím, jak v nich zachytit to nejlepší světlo a atmosféru.",
     profileImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800&h=1000",
     stats: [
+      { id: 'couples', value: '80+', label: 'Svateb' },
       { id: 'experience', value: '8 let', label: 'Praxe' },
       { id: 'reliability', value: '100%', label: 'Spolehlivost' },
       { id: 'quality', value: '4K', label: 'Výstup' },
     ]
   },
-  contact: {
-    label: "Rezervujte si termín",
-    title: "Váš příběh mýma očima",
-    description: "Máte dotaz nebo chcete zjistit dostupnost ve váš den? Rád s vámi proberu detaily vaší svatby.",
-    email: "svatba@jakubminka.cz",
-    phone: "+420 731 055 983",
-    locations: "Praha, Střední Čechy, Vysočina, Jižní Čechy"
+  portfolio: {
+    label: "Moje tvorba",
+    title: "Svatební filmy",
+    ctaMore: "Zobrazit další filmy"
+  },
+  faq: {
+    label: "Co vás zajímá",
+    title: "Časté dotazy"
   },
   pricing: {
-    note: "* Cestovné nad 50 km je účtováno 10 Kč/km z Vlašimi nebo z Pelhřimova. Možnost individuální úpravy balíčků na míru."
+    label: "Investice do vzpomínek",
+    title: "Svatební balíčky",
+    note: "* Neobsahuje cestovné (8 Kč/km z Prahy nebo Ostravy). Možnost individuální úpravy balíčků na míru.",
+    cta: "Poptat balíček"
+  },
+  contact: {
+    label: "Rezervujte si termín",
+    title: "Pojďme tvořit spolu",
+    description: "Máte dotaz nebo chcete zjistit dostupnost ve váš den? Rád s vámi proberu detaily vaší svatby v Praze, Středních Čechách, na Vysočině či v Jižních Čechách.",
+    email: "info@jakubminka.cz",
+    phone: "+420 777 000 000",
+    locations: "Praha, Střední Čechy, Vysočina, Jihočechy",
+    form: {
+      name: "Jméno a příjmení",
+      email: "E-mail",
+      phone: "Telefon",
+      package: "Poptávaný balíček",
+      date: "Datum svatby",
+      place: "Místo (Lokalita)",
+      message: "Podrobnosti o vaší svatbě",
+      submit: "Odeslat nezávaznou poptávku",
+      success: "Zpráva odeslána! Ozvu se vám nejpozději do 24 hodin."
+    }
   },
   cookies: {
     bannerTitle: "Tento web používá cookies 🍪",
@@ -43,11 +67,59 @@ export const SITE_TEXTS = {
   }
 };
 
+export const PRICING_PACKAGES: PricingPackage[] = [
+  {
+    name: 'Essential',
+    price: '18 000 Kč',
+    features: ['12 hodin natáčení', '3-5 minutový Highlight film', 'Full HD rozlišení', 'Online galerie']
+  },
+  {
+    name: 'Premium',
+    price: '25 000 Kč',
+    recommended: true,
+    features: ['12 hodin natáčení', '5-7 minutový Highlight film', 'Záběry z dronu', '4K rozlišení']
+  },
+  {
+    name: 'Exclusive',
+    price: '32 000 Kč',
+    features: ['12 hodin natáčení', '8-10 minutový Extended film', '1 minuta Teaser', 'Druhý kameraman']
+  }
+];
+
+export const VIDEO_PROJECTS: VideoProject[] = [
+  {
+    id: '1',
+    title: 'Anna & Petr',
+    location: 'Zámek Blatná',
+    thumbnail: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    category: 'highlight'
+  },
+  {
+    id: '2',
+    title: 'Lucie & Marek',
+    location: 'Vinařství Sonberk',
+    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    category: 'highlight'
+  }
+];
+
+export const FAQ_DATA = [
+  { question: "Jak dlouho dopředu si máme rezervovat termín?", answer: "Ideálně 6-12 měsíců předem." },
+  { question: "Kdy obdržíme hotové video?", answer: "Zpracování videa trvá obvykle 4 až 8 týdnů." }
+];
+
+export const OTHER_PROJECTS = [
+  { name: "Minka studio", brand: "studio", sub: "Fotograf a kameraman", url: "https://minkastudio.cz", letter: "M" },
+  { name: "Minka aerials", brand: "aerials", sub: "Foto a video dronem", url: "https://minkaaerials.cz", letter: "M" }
+];
+
 export const LEGAL_CONTENT = {
   vop: {
     title: 'Všeobecné obchodní podmínky',
     sections: [
-      { h: '1. Úvodní ustanovení', p: 'Tyto obchodní podmínky platí pro poskytování služeb svatebního kameramana Jakuba Minky.' },
+      { h: '1. Úvodní ustanovení', p: 'Tyto obchodní podmínky platí pro poskytování služeb svatebního kameramana Jakub Minka.' },
       { h: '2. Rezervace a platba', p: 'Rezervace termínu je závazná po úhradě nevratného rezervačního poplatku.' }
     ]
   },
@@ -64,83 +136,3 @@ export const LEGAL_CONTENT = {
     ]
   }
 };
-
-export const VIDEO_PROJECTS: VideoProject[] = [
-  {
-    id: '1',
-    title: 'Monika & Štěpán',
-    location: 'Střížovický dvůr',
-    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
-    videoUrl: 'https://youtu.be/LnO9Q5KK_SU',
-    category: 'highlight'
-  },
-  {
-    id: '2',
-    title: 'Terka & Pepa',
-    location: 'Penzion u Farmáře',
-    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
-    videoUrl: 'https://youtu.be/9wx1Beq_uqA',
-    category: 'highlight'
-  },
-  {
-    id: '3',
-    title: 'Kristýna & Martin',
-    location: 'Stodola Holašovice',
-    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
-    videoUrl: 'https://youtu.be/b6TIWjVYD4k',
-    category: 'highlight'
-  },
-  {
-    id: '4',
-    title: 'Jana & Žiga',
-    location: 'Penzion Na Kmíně',
-    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
-    videoUrl: 'https://youtu.be/35DuSZauEjY',
-    category: 'highlight'
-  },
-  {
-    id: '5',
-    title: 'Nikolka & Pepa',
-    location: 'Pesort Klášter Želiv',
-    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
-    videoUrl: 'https://youtu.be/t_1xysZwdqE',
-    category: 'highlight'
-  },
-   {
-    id: '6',
-    title: 'Tomáš & Radka',
-    location: 'Váňův statek',
-    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
-    videoUrl: 'https://youtu.be/lg22S8ROi5o',
-    category: 'highlight'
-  }
-];
-
-export const PRICING_PACKAGES: PricingPackage[] = [
-  {
-    name: 'Essential',
-    price: '25 000 Kč',
-    features: ['1 kameraman', '12 hodin natáčení', '3-5 minutový film', 'Dronové záběry součástí']
-  },
-  {
-    name: 'Premium',
-    price: '30 000 Kč',
-    recommended: true,
-    features: ['1 kameraman', '12 hodin natáčení', '3-5 minutový film', '10-20 minutový dokument','Dronové záběry součástí']
-  },
-  {
-    name: 'Exclusive',
-    price: '38 000 Kč',
-    features: ['2 kameramani', '12 hodin natáčení', '3-5 minutový film', '10-20 minutový dokument','Dronové záběry součástí']
-  }
-];
-
-export const FAQ_DATA = [
-  { question: "Jak dlouho dopředu si máme rezervovat termín?", answer: "Ideálně 6-12 měsíců předem." },
-  { question: "Kdy obdržíme hotové video?", answer: "Zpracování videa trvá obvykle 4 až 8 týdnů." }
-];
-
-export const OTHER_PROJECTS = [
-  { name: "Minka studio", brand: "studio", sub: "Fotograf a kameraman", url: "https://minkastudio.cz", letter: "M" },
-  { name: "Minka aerials", brand: "aerials", sub: "Foto a video dronem", url: "https://minkaaerials.cz", letter: "M" }
-];

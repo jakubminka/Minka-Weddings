@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { PRICING_PACKAGES, SITE_TEXTS } from '../constants';
 import { Check } from 'lucide-react';
@@ -8,12 +7,11 @@ const Pricing: React.FC = () => {
     <section id="cenik" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-          <span className="text-ochre font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Investice do vzpomínek</span>
-          <h2 className="text-4xl md:text-5xl font-bold serif-font mb-6">Svatební balíčky</h2>
+          <span className="text-ochre font-bold tracking-[0.3em] uppercase text-xs mb-4 block">{SITE_TEXTS.pricing.label}</span>
+          <h2 className="text-4xl md:text-5xl font-bold serif-font mb-6">{SITE_TEXTS.pricing.title}</h2>
           <div className="w-16 h-0.5 bg-ochre mx-auto"></div>
         </div>
 
-        {/* Dynamický grid - přizpůsobí se počtu položek v PRICING_PACKAGES */}
         <div className={`grid grid-cols-1 gap-8 ${
           PRICING_PACKAGES.length === 1 ? 'max-w-md mx-auto' : 
           PRICING_PACKAGES.length === 2 ? 'md:grid-cols-2 max-w-4xl mx-auto' : 
@@ -39,7 +37,6 @@ const Pricing: React.FC = () => {
                 <div className="flex items-baseline justify-center lg:justify-start gap-1">
                   <span className="text-4xl font-bold text-stone-900">{pkg.price}</span>
                 </div>
-                <p className="text-[10px] uppercase tracking-widest text-stone-400 font-bold mt-2">All-inclusive cena</p>
               </div>
 
               <ul className="space-y-4 mb-12 flex-1">
@@ -59,7 +56,7 @@ const Pricing: React.FC = () => {
                   : 'bg-stone-900 text-white hover:bg-ochre'
                 }`}
               >
-                Poptat balíček
+                {SITE_TEXTS.pricing.cta}
               </a>
             </div>
           ))}

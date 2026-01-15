@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import { FAQ_DATA } from '../constants';
+import { FAQ_DATA, SITE_TEXTS } from '../constants';
 import { Plus, Minus } from 'lucide-react';
 
 const FAQ: React.FC = () => {
@@ -10,8 +9,8 @@ const FAQ: React.FC = () => {
     <section id="faq" className="py-24 bg-white">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="text-ochre font-bold tracking-[0.3em] uppercase text-xs mb-4 block">Co vás zajímá</span>
-          <h2 className="text-4xl md:text-5xl font-bold serif-font">Časté dotazy</h2>
+          <span className="text-ochre font-bold tracking-[0.3em] uppercase text-xs mb-4 block">{SITE_TEXTS.faq.label}</span>
+          <h2 className="text-4xl md:text-5xl font-bold serif-font">{SITE_TEXTS.faq.title}</h2>
         </div>
 
         <div className="space-y-4">

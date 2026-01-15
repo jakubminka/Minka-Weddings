@@ -1,12 +1,12 @@
-
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, CheckCircle2 } from 'lucide-react';
-import { OTHER_PROJECTS, SITE_TEXTS } from '../constants';
+import { OTHER_PROJECTS, SITE_TEXTS, PRICING_PACKAGES } from '../constants';
 import LegalModal from './LegalModal';
 
 const Contact: React.FC = () => {
   const [formState, setFormState] = useState<'idle' | 'sending' | 'success'>('idle');
   const [legalView, setLegalView] = useState<'vop' | 'gdpr' | 'cookies' | null>(null);
+  const T = SITE_TEXTS.contact;
   
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,29 +24,29 @@ const Contact: React.FC = () => {
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
           
           <div className="lg:w-1/2">
-            <span className="text-ochre font-bold tracking-[0.3em] uppercase text-xs mb-4 block">{SITE_TEXTS.contact.label}</span>
-            <h2 id="contact-title" className="text-4xl md:text-5xl font-bold serif-font mb-8">{SITE_TEXTS.contact.title}</h2>
+            <span className="text-ochre font-bold tracking-[0.3em] uppercase text-xs mb-4 block">{T.label}</span>
+            <h2 id="contact-title" className="text-4xl md:text-5xl font-bold serif-font mb-8">{T.title}</h2>
             <p className="text-stone-400 mb-12 text-lg">
-              {SITE_TEXTS.contact.description}
+              {T.description}
             </p>
 
             <div className="space-y-8 mb-16">
-              <a href={`mailto:${SITE_TEXTS.contact.email}`} className="flex items-center gap-6 group">
+              <a href={`mailto:${T.email}`} className="flex items-center gap-6 group">
                 <div className="bg-white/5 p-4 rounded-full text-ochre group-hover:bg-ochre group-hover:text-white transition-all" aria-hidden="true">
                   <Mail size={24} />
                 </div>
                 <div>
                   <div className="text-[10px] uppercase tracking-widest text-stone-500 font-bold mb-1">E-mail</div>
-                  <div className="text-lg font-medium">{SITE_TEXTS.contact.email}</div>
+                  <div className="text-lg font-medium">{T.email}</div>
                 </div>
               </a>
-              <a href={`tel:${SITE_TEXTS.contact.phone.replace(/\s/g, '')}`} className="flex items-center gap-6 group">
+              <a href={`tel:${T.phone.replace(/\s/g, '')}`} className="flex items-center gap-6 group">
                 <div className="bg-white/5 p-4 rounded-full text-ochre group-hover:bg-ochre group-hover:text-white transition-all" aria-hidden="true">
                   <Phone size={24} />
                 </div>
                 <div>
                   <div className="text-[10px] uppercase tracking-widest text-stone-500 font-bold mb-1">Telefon</div>
-                  <div className="text-lg font-medium">{SITE_TEXTS.contact.phone}</div>
+                  <div className="text-lg font-medium">{T.phone}</div>
                 </div>
               </a>
               <div className="flex items-center gap-6">
@@ -55,7 +55,7 @@ const Contact: React.FC = () => {
                 </div>
                 <div>
                   <div className="text-[10px] uppercase tracking-widest text-stone-500 font-bold mb-1">Hlavní lokality</div>
-                  <div className="text-lg font-medium">{SITE_TEXTS.contact.locations}</div>
+                  <div className="text-lg font-medium">{T.locations}</div>
                 </div>
               </div>
             </div>
@@ -92,7 +92,7 @@ const Contact: React.FC = () => {
                     </div>
                   </div>
                   <h3 className="text-2xl font-bold serif-font mb-4">Zpráva odeslána!</h3>
-                  <p className="text-stone-500 mb-8">Děkuji za vaši poptávku. Ozvu se vám nejpozději do 24 hodin.</p>
+                  <p className="text-stone-500 mb-8">{T.form.success}</p>
                   <button 
                     onClick={() => setFormState('idle')}
                     className="text-ochre font-bold underline hover:text-stone-900 transition-colors"
@@ -104,51 +104,50 @@ const Contact: React.FC = () => {
                 <form className="space-y-5" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
-                      <label htmlFor="name" className="block text-xs font-bold uppercase tracking-widest text-stone-400 mb-2">Jméno a příjmení</label>
-                      <input id="name" name="name" required type="text" className="w-full bg-stone-50 border border-stone-100 rounded-xl px-4 py-3 focus:ring-2 focus:ring-ochre/20 focus:border-ochre outline-none transition-all" placeholder="Vaše jméno" />
+                      <label htmlFor="name" className="block text-xs font-bold uppercase tracking-widest text-stone-400 mb-2">{T.form.name}</label>
+                      <input id="name" name="name" required type="text" className="w-full bg-stone-50 border border-stone-100 rounded-xl px-4 py-3 focus:ring-2 focus:ring-ochre/20 focus:border-ochre outline-none transition-all" />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-xs font-bold uppercase tracking-widest text-stone-400 mb-2">E-mail</label>
-                      <input id="email" name="email" required type="email" className="w-full bg-stone-50 border border-stone-100 rounded-xl px-4 py-3 focus:ring-2 focus:ring-ochre/20 focus:border-ochre outline-none transition-all" placeholder="vas@email.cz" />
+                      <label htmlFor="email" className="block text-xs font-bold uppercase tracking-widest text-stone-400 mb-2">{T.form.email}</label>
+                      <input id="email" name="email" required type="email" className="w-full bg-stone-50 border border-stone-100 rounded-xl px-4 py-3 focus:ring-2 focus:ring-ochre/20 focus:border-ochre outline-none transition-all" />
                     </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
-                      <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-widest text-stone-400 mb-2">Telefon</label>
-                      <input id="phone" name="phone" required type="tel" className="w-full bg-stone-50 border border-stone-100 rounded-xl px-4 py-3 focus:ring-2 focus:ring-ochre/20 focus:border-ochre outline-none transition-all" placeholder="+420 000 000 000" />
+                      <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-widest text-stone-400 mb-2">{T.form.phone}</label>
+                      <input id="phone" name="phone" required type="tel" className="w-full bg-stone-50 border border-stone-100 rounded-xl px-4 py-3 focus:ring-2 focus:ring-ochre/20 focus:border-ochre outline-none transition-all" />
                     </div>
                     <div>
-                      <label htmlFor="service" className="block text-xs font-bold uppercase tracking-widest text-stone-400 mb-2">Poptávaný balíček</label>
+                      <label htmlFor="service" className="block text-xs font-bold uppercase tracking-widest text-stone-400 mb-2">{T.form.package}</label>
                       <select id="service" name="service" required className="w-full bg-stone-50 border border-stone-100 rounded-xl px-4 py-3 focus:ring-2 focus:ring-ochre/20 focus:border-ochre outline-none transition-all appearance-none cursor-pointer">
                         <option value="">Vyberte balíček...</option>
-                        <option value="essential">Essential - 8h natáčení</option>
-                        <option value="premium">Premium - 12h natáčení (Doporučeno)</option>
-                        <option value="exclusive">Exclusive - Neomezené natáčení</option>
+                        {PRICING_PACKAGES.map(pkg => (
+                          <option key={pkg.name} value={pkg.name.toLowerCase()}>{pkg.name} - 12h natáčení</option>
+                        ))}
                         <option value="other">Individuální poptávka</option>
                       </select>
                     </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                     <div>
-                      <label htmlFor="date" className="block text-xs font-bold uppercase tracking-widest text-stone-400 mb-2">Datum svatby</label>
+                      <label htmlFor="date" className="block text-xs font-bold uppercase tracking-widest text-stone-400 mb-2">{T.form.date}</label>
                       <input 
                         id="date"
                         name="date"
                         required 
                         type="date" 
                         min={today}
-                        max="2099-12-31"
                         className="w-full bg-stone-50 border border-stone-100 rounded-xl px-4 py-3 focus:ring-2 focus:ring-ochre/20 focus:border-ochre outline-none transition-all" 
                       />
                     </div>
                     <div>
-                      <label htmlFor="place" className="block text-xs font-bold uppercase tracking-widest text-stone-400 mb-2">Místo (Lokalita)</label>
-                      <input id="place" name="place" required type="text" className="w-full bg-stone-50 border border-stone-100 rounded-xl px-4 py-3 focus:ring-2 focus:ring-ochre/20 focus:border-ochre outline-none transition-all" placeholder="Např. Stodola Vysočina, Praha" />
+                      <label htmlFor="place" className="block text-xs font-bold uppercase tracking-widest text-stone-400 mb-2">{T.form.place}</label>
+                      <input id="place" name="place" required type="text" className="w-full bg-stone-50 border border-stone-100 rounded-xl px-4 py-3 focus:ring-2 focus:ring-ochre/20 focus:border-ochre outline-none transition-all" />
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-xs font-bold uppercase tracking-widest text-stone-400 mb-2">Podrobnosti o vaší svatbě</label>
-                    <textarea id="message" name="message" required rows={4} className="w-full bg-stone-50 border border-stone-100 rounded-xl px-4 py-3 focus:ring-2 focus:ring-ochre/20 focus:border-ochre outline-none transition-all resize-none" placeholder="Řekněte mi víc o vašem dni..."></textarea>
+                    <label htmlFor="message" className="block text-xs font-bold uppercase tracking-widest text-stone-400 mb-2">{T.form.message}</label>
+                    <textarea id="message" name="message" required rows={4} className="w-full bg-stone-50 border border-stone-100 rounded-xl px-4 py-3 focus:ring-2 focus:ring-ochre/20 focus:border-ochre outline-none transition-all resize-none" placeholder="Např. o vaší představě, stylu svatby..."></textarea>
                   </div>
                   <div className="flex items-start gap-3 py-2">
                     <input required type="checkbox" className="mt-1 accent-ochre" id="gdpr-check" />
@@ -160,7 +159,7 @@ const Contact: React.FC = () => {
                     disabled={formState === 'sending'}
                     className="w-full bg-stone-900 text-white py-4 rounded-xl font-bold uppercase tracking-widest text-xs hover:bg-ochre transition-all shadow-lg disabled:opacity-50"
                   >
-                    {formState === 'sending' ? 'Odesílám poptávku...' : 'Odeslat nezávaznou poptávku'}
+                    {formState === 'sending' ? 'Odesílám...' : T.form.submit}
                   </button>
                 </form>
               )}

@@ -1,31 +1,47 @@
-
 import React from 'react';
 import { Play, ChevronDown } from 'lucide-react';
 import { SITE_TEXTS } from '../constants';
 
 const Hero: React.FC = () => {
+  // POKUD MÁTE VLASTNÍ VIDEO (.mp4), VLOŽTE LINK SEM:
+  const customVideoUrl = ""; // např. "https://vase-domena.cz/video.mp4"
+  const youtubeVideoId = SITE_TEXTS.hero.heroVideoId;
+
   return (
     <div className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
-      <div className="absolute inset-0 bg-black/40 z-10 pointer-events-none"></div>
+      {/* Overlay pro filmový nádech a čitelnost */}
+      <div className="absolute inset-0 bg-stone-950/40 z-10 pointer-events-none"></div>
       
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <iframe
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh]"
-          src={`https://www.youtube.com/embed/${SITE_TEXTS.hero.heroVideoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${SITE_TEXTS.hero.heroVideoId}&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1`}
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
+      {/* Video Background Container */}
+      <div className="absolute inset-0 z-0 overflow-hidden no-interact">
+        {customVideoUrl ? (
+          <video 
+            autoPlay 
+            muted 
+            loop 
+            playsInline 
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover opacity-70"
+          >
+            <source src={customVideoUrl} type="video/mp4" />
+          </video>
+        ) : (
+          <iframe
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[115vw] h-[65vw] min-h-[110vh] min-w-[195vh] scale-110 opacity-70"
+            src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&controls=0&loop=1&playlist=${youtubeVideoId}&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablejsapi=1&origin=${window.location.origin}`}
+            frameBorder="0"
+            allow="autoplay; encrypted-media"
+          ></iframe>
+        )}
       </div>
 
       <div className="relative z-20 text-center px-4 max-w-5xl">
         <span className="text-white/80 uppercase tracking-[0.4em] text-[10px] md:text-xs mb-8 block font-bold animate-in fade-in slide-in-from-bottom-4 duration-700">
           {SITE_TEXTS.hero.label}
         </span>
-        <h1 className="text-6xl md:text-8xl lg:text-[10rem] text-white font-bold serif-font mb-8 animate-in fade-in slide-in-from-bottom-6 duration-1000 leading-[0.9]">
+        <h1 className="text-6xl md:text-8xl lg:text-[9rem] text-white font-bold serif-font mb-8 animate-in fade-in slide-in-from-bottom-6 duration-1000 leading-[0.85] tracking-tighter">
           {SITE_TEXTS.hero.title}<br/><span className="italic font-light opacity-80">{SITE_TEXTS.hero.titleItalic}</span>
         </h1>
-        <p className="text-lg md:text-xl text-white/80 mb-12 max-w-xl mx-auto font-light animate-in fade-in slide-in-from-bottom-8 duration-1000">
+        <p className="text-lg md:text-xl text-white/70 mb-12 max-w-xl mx-auto font-light animate-in fade-in slide-in-from-bottom-8 duration-1000">
           {SITE_TEXTS.hero.description}
         </p>
         
