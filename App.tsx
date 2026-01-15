@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './Hero';
@@ -20,8 +21,9 @@ const App: React.FC = () => {
         <Hero />
         <About />
         <Portfolio />
-        <FAQ />
+        {/* Sekce prohozeny: Ceník je nyní před FAQ */}
         <Pricing />
+        <FAQ />
         <Contact />
       </main>
       
