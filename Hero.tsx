@@ -5,7 +5,7 @@ import { SITE_TEXTS } from './constants';
 const Hero: React.FC = () => {
   // POKUD MÁTE VLASTNÍ VIDEO (.mp4), VLOŽTE LINK SEM:
   // Např. const customVideoUrl = "/videa/header.mp4"; nebo URL z cloudu.
-  const customVideoUrl = ""; 
+  const customVideoUrl = "https://gfdymyfjycowdedllodd.supabase.co/storage/v1/object/public/media/header.mp4"; 
   const youtubeVideoId = SITE_TEXTS.hero.youtubeVideoId;
 
   return (
