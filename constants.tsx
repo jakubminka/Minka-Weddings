@@ -17,7 +17,7 @@ export const SITE_TEXTS = {
   },
   about: {
     label: "Kdo stojí za kamerou",
-    title: "Ahoj, jsem Jakub Minka",
+    title: "Ahoj, jsem Jakub",
     p1: "Věřím, že svatební video by mělo být víc než jen záznam dne. Moje práce svatebního kameramana je o detailech, které jiným uniknou, a o příběhu, který dýchá i po letech.",
     p2: "Specializuji se na filmové záběry ze svateb a působím především v Praze, ve Středočeskén kraji, na Vysočině a v Jižních Čechách. Každá svatba je pro mě unikátní výzvou zachytit to nejdůležitější z vašeho dne.",
     profileImage: "https://gfdymyfjycowdedllodd.supabase.co/storage/v1/object/public/media/A7309815.webp?auto=format&fit=crop&q=80&w=800&h=1000",
