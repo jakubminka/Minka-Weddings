@@ -9,7 +9,7 @@ export const SITE_TEXTS = {
     label: "Svatební filmy • Jakub Minka",
     title: "Příběhy,",
     titleItalic: "které ožívají",
-    description: "Zachyťte kouzlo okamžiku. Tvořím svatební videa, která v sobě nesou emoce, přirozenost a filmovou atmosféru.",
+    description: "Tvořím svatební videa, která v sobě nesou emoce, přirozenost a filmovou atmosféru.",
     ctaPrimary: "Zhlédnout filmy",
     ctaSecondary: "Rezervovat termín",
     // ID videa z YouTube pro případ, že nepoužijete vlastní mp4
@@ -18,11 +18,11 @@ export const SITE_TEXTS = {
   about: {
     label: "Kdo stojí za kamerou",
     title: "Ahoj, jsem Jakub Minka",
-    p1: "Věřím, že svatební video by mělo být víc než jen záznam dne. Moje práce jako svatebního kameramana je o detailech, které jiným uniknou, a o příběhu, který dýchá i po letech.",
-    p2: "Specializuji se na filmové záběry ze svateb a působím především v lokalitách Praha, Středočeský kraj, Vysočina a Jižní Čechy. Každá svatba je pro mě unikátní výzvou zachytit to nejdůležitější – vás dva.",
+    p1: "Věřím, že svatební video by mělo být víc než jen záznam dne. Moje práce jako svatebního kameramana je o detailech a o příběhu, který dýchá i po letech.",
+    p2: "Specializuji se na filmové záběry ze svateb a působím především v Praze, ve Středočeském kraji, na Vysočině a v Jižních Čechách, ale dojedu za vámi kamkoliv.",
     profileImage: "https://gfdymyfjycowdedllodd.supabase.co/storage/v1/object/public/media/A7309815.webp?auto=format&fit=crop&q=80&w=800&h=1000",
     stats: [
-      { id: 'couples', value: '80+', label: 'Svateb' },
+      { id: 'couples', value: '40+', label: 'Svateb' },
       { id: 'experience', value: '8 let', label: 'Praxe' },
       { id: 'reliability', value: '100%', label: 'Spolehlivost' },
       { id: 'quality', value: '4K', label: 'Výstup' },
@@ -76,45 +76,69 @@ export const SITE_TEXTS = {
 export const PRICING_PACKAGES: PricingPackage[] = [
   {
     name: 'Essential',
-    price: '18 000 Kč',
-    features: ['12 hodin natáčení', '3-5 minutový Highlight film', 'Full HD rozlišení', 'Online galerie', 'Zpracování do 6 týdnů']
+    price: '25 000 Kč',
+    features: ['12 hodin natáčení', '1 kameraman', '3-5 minutový film', 'dron v ceně']
   },
   {
     name: 'Premium',
-    price: '25 000 Kč',
+    price: '30 000 Kč',
     recommended: true,
-    features: ['12 hodin natáčení', '5-7 minutový Highlight film', 'Záběry z dronu', '4K rozlišení', 'Online galerie', 'Zpracování do 4 týdnů']
+    features: ['12 hodin natáčení', '1 kameraman', '3-5 minutový film', '10-20 minutový dokument', 'dron v ceně']
   },
   {
     name: 'Exclusive',
-    price: '32 000 Kč',
-    features: ['12 hodin natáčení', '8-10 minutový Extended film', '1 minuta Teaser na IG', 'Druhý kameraman', '4K rozlišení', 'Prioritní zpracování']
+    price: '38 000 Kč',
+    features: ['12 hodin natáčení', '2 kameramani', '3-5 minutový film', '10-20 minutový dokument', 'dron v ceně']
   }
 ];
 
 export const VIDEO_PROJECTS: VideoProject[] = [
   {
     id: '1',
-    title: 'Anna & Petr',
-    location: 'Zámek Blatná',
-    thumbnail: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    title: 'Monika & Štěpán',
+    location: 'Střížovický dvůr',
+    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://youtu.be/LnO9Q5KK_SU',
     category: 'highlight'
   },
   {
     id: '2',
-    title: 'Lucie & Marek',
-    location: 'Vinařství Sonberk',
+    title: 'Terka & Pepa',
+    location: 'Penzion u Farmáře',
     thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    videoUrl: 'https://youtu.be/9wx1Beq_uqA',
     category: 'highlight'
   },
   {
     id: '3',
-    title: 'Kateřina & Jan',
-    location: 'Villa Richter',
-    thumbnail: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80&w=800',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    title: 'Kristýna & Martin',
+    location: 'Stodola Holašovice',
+    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://youtu.be/b6TIWjVYD4k',
+    category: 'highlight'
+  },
+  {
+    id: '4',
+    title: 'Jana & Žiga',
+    location: 'Penzion Na Kmíně',
+    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://youtu.be/35DuSZauEjY',
+    category: 'highlight'
+  },
+  {
+    id: '5',
+    title: 'Nikolka & Pepa',
+    location: 'Pesort Klášter Želiv',
+    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://youtu.be/t_1xysZwdqE',
+    category: 'highlight'
+  },
+   {
+    id: '6',
+    title: 'Tomáš & Radka',
+    location: 'Váňův statek',
+    thumbnail: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&q=80&w=800',
+    videoUrl: 'https://youtu.be/lg22S8ROi5o',
     category: 'highlight'
   }
 ];
