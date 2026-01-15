@@ -119,19 +119,19 @@ export const VIDEO_PROJECTS: VideoProject[] = [
 export const PRICING_PACKAGES: PricingPackage[] = [
   {
     name: 'Essential',
-    price: '18 000 Kč',
-    features: ['8 hodin natáčení', '3-5 minutový Highlight film', 'Full HD rozlišení', 'Online galerie']
+    price: '25 000 Kč',
+    features: ['1 kameraman', '12 hodin natáčení', '3-5 minutový film', 'Dronové záběry součástí']
   },
   {
     name: 'Premium',
-    price: '25 000 Kč',
+    price: '30 000 Kč',
     recommended: true,
-    features: ['12 hodin natáčení', '5-7 minutový Highlight film', 'Záběry z dronu', '4K rozlišení']
+    features: ['1 kameraman', '12 hodin natáčení', '3-5 minutový film', '10-20 minutový dokument','Dronové záběry součástí']
   },
   {
     name: 'Exclusive',
-    price: '32 000 Kč',
-    features: ['Neomezená doba natáčení', '8-10 minutový Extended film', '1 minuta Teaser', 'Druhý kameraman']
+    price: '38 000 Kč',
+    features: ['2 kameramani', '12 hodin natáčení', '3-5 minutový film', '10-20 minutový dokument','Dronové záběry součástí']
   }
 ];
 
