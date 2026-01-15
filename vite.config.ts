@@ -5,11 +5,13 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   define: {
-    // Toto zajistí, že process.env bude v prohlížeči definován, i když je prázdný
-    'process.env': process.env
+    'process.env': {
+      API_KEY: JSON.stringify(process.env.API_KEY || '')
+    }
   },
   build: {
     outDir: 'dist',
+    emptyOutDir: true,
     rollupOptions: {
       input: {
         main: './index.html'

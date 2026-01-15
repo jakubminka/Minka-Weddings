@@ -3,16 +3,17 @@ import { GoogleGenAI } from "@google/genai";
 import { ChatMessage } from "../types";
 import { SITE_TEXTS, PRICING_PACKAGES, FAQ_DATA } from "../constants";
 
-/**
- * Service to handle communication with the Gemini API for the Wedding Stylist chatbot.
- * It provides context about Jakub Minka's services to help answer user queries.
- */
 export async function getWeddingStylistResponse(prompt: string, history: ChatMessage[]): Promise<string> {
-  // Always initialize the Gemini client right before use to ensure the latest API key is used.
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const apiKey = process.env.API_KEY;
+  
+  if (!apiKey) {
+    console.error("Gemini API Key is missing. Check your environment variables.");
+    return "Omlouvám se, můj svatební rádce je momentálně offline (chybí API klíč). Kontaktujte prosím Jakuba přímo.";
+  }
+
+  const ai = new GoogleGenAI({ apiKey });
 
   try {
-    // Construct the system instruction with relevant business information for grounding.
     const systemInstruction = `
       Jsi asistent svatebního kameramana Jakuba Minky. Tvým úkolem je odpovídat na dotazy klientů přátelsky, profesionálně a s nadšením pro svatby.
       
@@ -34,19 +35,16 @@ export async function getWeddingStylistResponse(prompt: string, history: ChatMes
       Odpovídej stručně, lidsky a jasně v češtině. Pokud něco nevíš, odkaž klienta na kontaktní formulář nebo email.
     `;
 
-    // Map conversation history to the format required by the Google GenAI SDK.
     const contents = history.map(msg => ({
       role: (msg.role === 'assistant' ? 'model' : 'user') as 'user' | 'model',
       parts: [{ text: msg.content }]
     }));
 
-    // Add the current user's prompt as the final part of the conversation.
     contents.push({
       role: 'user',
       parts: [{ text: prompt }]
     });
 
-    // Query the Gemini 3 Flash model for a fast and efficient text response.
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: contents,
@@ -56,7 +54,6 @@ export async function getWeddingStylistResponse(prompt: string, history: ChatMes
       },
     });
 
-    // Access the .text property directly to retrieve the generated string.
     return response.text || "Omlouvám se, ale momentálně nejsem schopen odpovědět. Zkuste to prosím později.";
   } catch (error) {
     console.error("Gemini API Error:", error);
