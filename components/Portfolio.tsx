@@ -34,9 +34,9 @@ const Portfolio: React.FC = () => {
     }
 
     if (videoId) {
-      // DŮLEŽITÉ: Žádný parametr "mute=1", aby video hrálo se zvukem.
-      // Používáme youtube-nocookie pro ochranu před hláškou o ověření robota.
-      return `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1&modestbranding=1`;
+      // DŮLEŽITÉ: Používáme standardní www.youtube.com a předáváme origin
+      const origin = window.location.origin;
+      return `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&playsinline=1&modestbranding=1&origin=${encodeURIComponent(origin)}`;
     }
     return url;
   };
