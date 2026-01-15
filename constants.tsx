@@ -17,7 +17,7 @@ export const SITE_TEXTS = {
   },
   about: {
     label: "Kdo stojí za kamerou",
-    title: "Ahoj, jsem Jakub",
+    title: "Ahoj, jsem Jakub Minka",
     p1: "Věřím, že svatební video by mělo být víc než jen záznam dne. Moje práce svatebního kameramana je o detailech, které jiným uniknou, a o příběhu, který dýchá i po letech.",
     p2: "Specializuji se na filmové záběry ze svateb a působím především v Praze, ve Středočeskén kraji, na Vysočině a v Jižních Čechách. Každá svatba je pro mě unikátní výzvou zachytit to nejdůležitější z vašeho dne.",
     profileImage: "https://gfdymyfjycowdedllodd.supabase.co/storage/v1/object/public/media/A7309815.webp?auto=format&fit=crop&q=80&w=800&h=1000",
@@ -158,8 +158,8 @@ export const FAQ_DATA = [
 ];
 
 export const OTHER_PROJECTS = [
-  { name: "Minka studio", brand: "studio", sub: "Fotograf a kameraman", url: "https://minkastudio.cz", letter: "M" },
-  { name: "Minka aerials", brand: "aerials", sub: "Foto a video dronem", url: "https://minkaaerials.cz", letter: "M" }
+  { name: "Minka studio", brand: "studio", sub: "Fotograf a kameraman", url: "", letter: "M" },
+  { name: "Minka aerials", brand: "aerials", sub: "Fotografie a video dronem", url: "https://fotovideodronem.cz", letter: "M" }
 ];
 
 export const LEGAL_CONTENT = {
@@ -169,25 +169,37 @@ export const LEGAL_CONTENT = {
       { 
         h: '1. Úvodní ustanovení', 
         items: [
-          { type: 'p', text: 'Tyto obchodní podmínky platí pro poskytování služeb svatebního kameramana Jakub Minka.' },
-          { type: 'p', text: 'Podmínky blíže vymezují a upřesňují práva a povinnosti poskytovatele a klienta.' }
+          { type: 'ul', bullets: ['Tyto VOP upravují vztah mezi kameramanem Jakubem Minkou (bytem Menhartova 1529, 39301 Pelhřimov, IČO: 03942074, DIČ: CZ9410041553) a klientem. Smluvní vztah vzniká potvrzením rezervace a zaplacením rezervačního poplatku.' ]}
         ]
       },
       { 
         h: '2. Rezervace a platba', 
         items: [
-          { type: 'p', text: 'Rezervace termínu je závazná po úhradě nevratného rezervačního poplatku.' },
           { type: 'ul', bullets: [
-            'Rezervační poplatek činí 30% z celkové ceny balíčku.',
-            'Doplatek je splatný nejpozději v den svatby nebo dle dohody.',
-            'V případě zrušení termínu klientem se rezervační poplatek nevrací.'
+            'Rezervační poplatek: Pro závaznou rezervaci termínu hradí klient poplatek ve výši 30 % z celkové ceny. Tento poplatek je nevratný.',
+            'Doplatek: Zbývajících 70 % z ceny je splatných po odevzdání hotového díla (převodem na účet).',
+            'Přesčasy: Pokud se natáčení protáhne nad rámec sjednaného balíčku, klient hradí každou další započatou hodinu dle aktuálního ceníku. Překročení délky natáčení do 60 minut je tolerováno a není účtováno.'
           ]}
         ]
       },
       {
-        h: '3. Autorská práva',
+        h: '3. Součinnost a technické podmínky',
         items: [
-          { type: 'p', text: 'Kameraman si vyhrazuje právo na užití díla pro vlastní propagaci (web, sociální sítě), pokud není dohodnuto jinak.' }
+          { type: 'ul', bullets: [
+            'Strava: Klient zajistí kameramanovi stravu a pitný režim po celou dobu konání svatby (vzhledem k výhradně celodenním balíčkům).',
+            'Dron: Natáčení z dronu je doplňková služba. Kameraman si vyhrazuje právo nevzlétnout v případě nepříznivého počasí (silný vítr, déšť) nebo z důvodu legislativních omezení (bezletové zóny, bezpečnost osob). Omezení letu dronu není důvodem ke slevě z celkové ceny.',
+            'Ochrana techniky: Klient odpovídá za škody na technice kameramana způsobené hosty nebo provozem svatby (např. převržení stativu, polití techniky). V případě poškození je klient povinen uhradit náklady na opravu či pořízení nového vybavení.'
+          ]}
+        ]
+      }
+      {
+        h: '4. Termíny a odevzdání díla',
+        items: [
+          { type: 'ul', bullets: [
+            'Způsob dodání: Video je předáváno výhradně digitálně přes cloudové úložiště.',
+            'Dodací lhůty: Standardně 2–4 týdny (hlavní klip), respektive 4 týdny (pokud balíček obsahuje i dokument). Lhůta se může prodloužit v případě nenadálých situací (nemoc, vyšší moc).',
+            'Hudba: Kameraman využívá hudbu z vlastních licencovaných bank. Licence pro užití v rámci videí je již zahrnuta v ceně.'
+          ]}
         ]
       }
     ]
