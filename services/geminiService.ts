@@ -1,15 +1,16 @@
 
 import { GoogleGenAI } from "@google/genai";
 import { ChatMessage } from "../types";
-import { SITE_TEXTS, PRICING_PACKAGES, FAQ_DATA } from "../constants";
+import { SITE_TEXTS, PRICING_PACKAGES } from "../constants";
 
 export async function getWeddingStylistResponse(prompt: string, history: ChatMessage[]): Promise<string> {
-  // Přístup přes process.env.API_KEY, který definujeme ve vite.config.ts
+  // Ve Vite se k env proměnným přistupuje přes define ve vite.config.ts nebo import.meta.env
+  // Ale díky naší konfiguraci ve vite.config.ts bude process.env.API_KEY fungovat
   const apiKey = (process.env as any).API_KEY;
   
   if (!apiKey) {
-    console.warn("Gemini API Key missing in environment.");
-    return "Omlouvám se, můj svatební rádce je momentálně offline. Kontaktujte prosím Jakuba přímo na emailu.";
+    console.warn("Gemini API Key is missing.");
+    return "Omlouvám se, asistent je momentálně nedostupný. Kontaktujte prosím Jakuba přímo.";
   }
 
   const ai = new GoogleGenAI({ apiKey });
@@ -46,6 +47,6 @@ export async function getWeddingStylistResponse(prompt: string, history: ChatMes
     return response.text || "Zkuste prosím dotaz zformulovat jinak.";
   } catch (error) {
     console.error("Gemini Error:", error);
-    return "Omlouvám se, došlo k technické chybě. Napište prosím Jakubovi přímo.";
+    return "Omlouvám se, došlo k technické chybě.";
   }
 }
