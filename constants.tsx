@@ -63,7 +63,7 @@ export const SITE_TEXTS = {
     }
   },
   footer: {
-    description: "Zachycuji nejkrásnější příběhy vašeho života s důrazem na emoce a přirozenost. Působím v Praze, ve Středních Čechách, na Vysočině a v Jižních Čechách.",
+    description: "Zachycuji svatební příběhy s důrazem na emoce a přirozenost. Působím v Praze, ve Středních Čechách, na Vysočině a v Jižních Čechách.",
     copyright: "Všechna práva vyhrazena."
   },
   // Added cookies configuration for the CookieConsent component
@@ -158,7 +158,7 @@ export const FAQ_DATA = [
 ];
 
 export const OTHER_PROJECTS = [
-  { name: "Minka studio", brand: "studio", sub: "Fotograf a kameraman", url: "", letter: "M" },
+  { name: "Minka studio", brand: "studio", sub: "Fotograf a kameraman", url: "https://www.minka-studio.cz", letter: "M" },
   { name: "Minka aerials", brand: "aerials", sub: "Fotografie a video dronem", url: "https://fotovideodronem.cz", letter: "M" }
 ];
 
