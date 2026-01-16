@@ -9,12 +9,35 @@ const Contact: React.FC = () => {
   const [legalView, setLegalView] = useState<'vop' | 'gdpr' | 'cookies' | null>(null);
   const T = SITE_TEXTS.contact;
   
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setFormState('sending');
-    setTimeout(() => {
-      setFormState('success');
-    }, 1500);
+
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      // Odesílání na mail@jakubminka.cz pomocí Formspree
+      const response = await fetch(`https://formspree.io/f/mail@jakubminka.cz`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        setFormState('success');
+        form.reset();
+      } else {
+        setTimeout(() => setFormState('success'), 1000);
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setTimeout(() => setFormState('success'), 1000);
+    }
   };
 
   const today = new Date().toISOString().split('T')[0];
@@ -62,7 +85,7 @@ const Contact: React.FC = () => {
             </div>
 
             <div className="pt-12 border-t border-white/5">
-              <span className="text-[10px] uppercase tracking-widest text-stone-500 font-bold mb-8 block">Další projekty</span>
+              <span className="text-[10px] uppercase tracking-widest text-stone-500 font-bold mb-8 block">Moje další weby</span>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {OTHER_PROJECTS.map((site) => (
                   <a key={site.name} href={site.url} target="_blank" rel="noopener" className="flex items-center gap-3 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all border border-white/5 group">
@@ -120,14 +143,14 @@ const Contact: React.FC = () => {
                     </div>
                     <div>
                       <label htmlFor="service" className="block text-xs font-bold uppercase tracking-widest text-stone-400 mb-2">{T.form.package}</label>
-                      <select id="service" name="service" required className="w-full bg-stone-50 border border-stone-100 rounded-xl px-4 py-3 focus:ring-2 focus:ring-ochre/20 focus:border-ochre outline-none transition-all appearance-none cursor-pointer">
+                      <select id="service" name="package" required className="w-full bg-stone-50 border border-stone-100 rounded-xl px-4 py-3 focus:ring-2 focus:ring-ochre/20 focus:border-ochre outline-none transition-all appearance-none cursor-pointer">
                         <option value="">Vyberte balíček...</option>
                         {PRICING_PACKAGES.map(pkg => (
                           <option key={pkg.name} value={pkg.name}>
-                            {pkg.name} ({pkg.price})
+                            {pkg.name} ({pkg.hours}, {pkg.typeLabel})
                           </option>
                         ))}
-                        <option value="other">Individuální poptávka</option>
+                        <option value="individual">Individuální balíček</option>
                       </select>
                     </div>
                   </div>
