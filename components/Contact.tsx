@@ -122,7 +122,9 @@ const Contact: React.FC = () => {
                       <select id="service" name="service" required className="w-full bg-stone-50 border border-stone-100 rounded-xl px-4 py-3 focus:ring-2 focus:ring-ochre/20 focus:border-ochre outline-none transition-all appearance-none cursor-pointer">
                         <option value="">Vyberte balíček...</option>
                         {PRICING_PACKAGES.map(pkg => (
-                          <option key={pkg.name} value={pkg.name.toLowerCase()}>{pkg.name} - 12h natáčení</option>
+                          <option key={pkg.name} value={pkg.name.toLowerCase()}>{pkg.name} - 8h natáčení, klip</option>,
+                          <option key={pkg.name} value={pkg.name.toLowerCase()}>{pkg.name} - 12h natáčení, klip</option>,
+                          <option key={pkg.name} value={pkg.name.toLowerCase()}>{pkg.name} - 12h natáčení, klip + dokument</option>
                         ))}
                         <option value="other">Individuální poptávka</option>
                       </select>
