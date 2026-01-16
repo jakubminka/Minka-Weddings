@@ -77,17 +77,23 @@ export const PRICING_PACKAGES: PricingPackage[] = [
   {
     name: 'Essential',
     price: '20 000 Kč',
+    hours: '8h natáčení',
+    typeLabel: 'Klip',
     features: ['8 hodin natáčení', '1 kameraman', '3-5 minutový film', 'Dron v ceně', 'Zpracování do 2-4 týdnů']
   },
   {
     name: 'Premium',
     price: '25 000 Kč',
+    hours: '12h natáčení',
+    typeLabel: 'Klip',
     recommended: true,
     features: ['12 hodin natáčení', '1 kameraman', '3-5 minutový film', 'Dron v ceně', 'Zpracování do 2-4 týdnů']
   },
   {
     name: 'Exclusive',
     price: '30 000 Kč',
+    hours: '12h natáčení',
+    typeLabel: 'Klip + dokument',
     features: ['12 hodin natáčení', '1 kameraman', '3-5 minutový film', 'až 20 minutový dokument','Dron v ceně', 'Zpracování do 4 týdnů']
   }
 ];
