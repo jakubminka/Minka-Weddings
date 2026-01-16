@@ -61,7 +61,7 @@ const Contact: React.FC = () => {
             </div>
 
             <div className="pt-12 border-t border-white/5">
-              <span className="text-[10px] uppercase tracking-widest text-stone-500 font-bold mb-8 block">Moje další weby</span>
+              <span className="text-[10px] uppercase tracking-widest text-stone-500 font-bold mb-8 block">Další projekty</span>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {OTHER_PROJECTS.map((site) => (
                   <a key={site.name} href={site.url} target="_blank" rel="noopener" className="flex items-center gap-3 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all border border-white/5 group">
