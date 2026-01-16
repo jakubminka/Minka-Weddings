@@ -150,7 +150,6 @@ const Contact: React.FC = () => {
                             {pkg.name} ({pkg.hours}, {pkg.typeLabel})
                           </option>
                         ))}
-                        <option value="individual">Individuální balíček</option>
                       </select>
                     </div>
                   </div>
