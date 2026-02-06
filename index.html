@@ -46,6 +46,12 @@
       }
       /* Zabránění interakci s videem v headeru */
       .no-interact { pointer-events: none; user-select: none; }
+      /* Fade-in animace pro header video */
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 0.7; }
+      }
+      .video-fade-in { animation: fadeIn 1.5s ease-in-out forwards; }
     </style>
 
   <script type="importmap">
