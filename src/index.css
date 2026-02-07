@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer theme {
+  :root {
+    --color-ochre: #b9914d;
+    --color-ochre-dark: #94743e;
+    --color-stone-950: #0c0a09;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +18,7 @@
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
+  @apply bg-stone-50 text-stone-900;
 }
 
 h1, h2, h3, h4, .serif-font {
@@ -19,4 +28,15 @@ h1, h2, h3, h4, .serif-font {
 
 p {
   text-wrap: pretty;
+}
+
+/* Tailwind color extensions */
+@layer components {
+  .bg-ochre {
+    @apply bg-[#b9914d];
+  }
+  
+  .text-ochre {
+    @apply text-[#b9914d];
+  }
 }
