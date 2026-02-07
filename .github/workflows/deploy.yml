@@ -29,5 +29,5 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./dist/
-        server-dir: /www/
+        server-dir: /www/domains/jakubminka.cz/
         dangerous-clean-slate: false
