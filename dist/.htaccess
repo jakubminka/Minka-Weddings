@@ -1,9 +1,6 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /
-RewriteCond %{HTTP_HOST} ^jakubminka\.cz$ [OR]
-RewriteCond %{HTTP_HOST} ^www\.jakubminka\.cz$
-RewriteRule ^(.*)$ https://www.minka-weddings.cz/$1 [L,R=301]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.html [QSA,L]
