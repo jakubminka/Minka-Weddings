@@ -1,9 +1,23 @@
-cd /Users/jakubminka/Documents/GitHub/Minka-Weddings
-
-# Ověř, že tam je
-ls -la package.json
-
-# Pokud je - pushni to
-git add package.json
-git commit -m "add: package.json for Cloudflare Pages"
-git push origin main
+{
+  "name": "minka-weddings",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "lucide-react": "^0.562.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.2",
+    "vite": "^7.3.1",
+    "tailwindcss": "^3.4.0",
+    "postcss": "^8.4.0",
+    "autoprefixer": "^10.4.0"
+  }
+}
