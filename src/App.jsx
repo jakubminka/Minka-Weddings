@@ -1,4 +1,6 @@
 import { useRef, useEffect } from 'react'
+import headerWebm from './assets/header.webm'
+import headerMp4 from './assets/header.mp4'
 
 export default function App() {
   const videoRef = useRef(null)
@@ -29,11 +31,11 @@ export default function App() {
             onError={(e) => console.log('Video error:', e)}
           >
             <source 
-              src="/header.webm"
+              src={headerWebm}
               type="video/webm"
             />
             <source 
-              src="/header.mp4"
+              src={headerMp4}
               type="video/mp4"
             />
           </video>
