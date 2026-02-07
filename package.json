@@ -1,0 +1,9 @@
+cd /Users/jakubminka/Documents/GitHub/Minka-Weddings
+
+# Ověř, že tam je
+ls -la package.json
+
+# Pokud je - pushni to
+git add package.json
+git commit -m "add: package.json for Cloudflare Pages"
+git push origin main
