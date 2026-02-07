@@ -35,6 +35,9 @@ jobs:
       run: |
         lftp -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_HOST }} << EOF
         mirror -R --delete ./dist/ /www/domains/jakubminka.cz/
+        chmod 644 /www/domains/jakubminka.cz/index.html
+        chmod 644 /www/domains/jakubminka.cz/.htaccess
+        chmod 755 /www/domains/jakubminka.cz/assets
         quit
         EOF
 
