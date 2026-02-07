@@ -1,11 +1,13 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-
-  # Ignoruj soubory a složky
+  
+  # Redirect jakubminka.cz na minka-weddings.cz (301 permanent redirect pro SEO)
+  RewriteCond %{HTTP_HOST} ^(www\.)?jakubminka\.cz$ [NC]
+  RewriteRule ^(.*)$ https://www.minka-weddings.cz/$1 [L,R=301]
+  
+  # React SPA routing pro minka-weddings.cz
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-
-  # Všechno přesměruj na index.html pro React routing
   RewriteRule ^ index.html [QSA,L]
 </IfModule>
