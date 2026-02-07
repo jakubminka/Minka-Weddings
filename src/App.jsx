@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useRef, useEffect } from 'react'
 
 export default function App() {
   const videoRef = useRef(null)
@@ -20,15 +20,21 @@ export default function App() {
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video
             ref={videoRef}
+            autoPlay
             muted
             loop
             playsInline
+            preload="auto"
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover"
             onError={(e) => console.log('Video error:', e)}
           >
             <source 
               src="/header.webm"
               type="video/webm"
+            />
+            <source 
+              src="/header.mp4"
+              type="video/mp4"
             />
           </video>
         </div>
