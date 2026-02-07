@@ -1,6 +1,16 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 export default function App() {
+  const videoRef = useRef(null)
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(err => {
+        console.log('Autoplay failed:', err)
+      })
+    }
+  }, [])
+
   return (
     <div className="w-full">
       {/* Header s videem */}
@@ -9,21 +19,16 @@ export default function App() {
         
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video
+            ref={videoRef}
             muted
-            autoPlay
             loop
             playsInline
-            preload="metadata"
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-full min-h-full object-cover"
-            crossOrigin="anonymous"
+            onError={(e) => console.log('Video error:', e)}
           >
             <source 
-              src="https://ksncxtewqjvqjvjmsifo.supabase.co/storage/v1/object/public/weddings/header.webm"
+              src="/header.webm"
               type="video/webm"
-            />
-            <source 
-              src="https://ksncxtewqjvqjvjmsifo.supabase.co/storage/v1/object/public/weddings/header.mp4"
-              type="video/mp4"
             />
           </video>
         </div>
