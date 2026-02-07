@@ -2,10 +2,6 @@
   RewriteEngine On
   RewriteBase /
 
-  # Redirect jakubminka.cz to minka-weddings.cz
-  RewriteCond %{HTTP_HOST} ^(www\.)?jakubminka\.cz$ [NC]
-  RewriteRule ^(.*)$ https://minka-weddings.cz/$1 [R=301,L]
-
   # Ignoruj soubory a složky
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
