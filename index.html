@@ -10,7 +10,6 @@
     <meta name="description" content="Profesionální svatební filmy od Jakuba Minky. Působím v Praze, Středních Čechách, na Vysočině a v Jižních Čechách." />
 
     <link rel="preconnect" href="https://ksncxtewqjvqjvjmsifo.supabase.co">
-    <link rel="preload" href="https://ksncxtewqjvqjvjmsifo.supabase.co/storage/v1/object/public/weddings/header.mp4" as="video" type="video/mp4">
     <link rel="dns-prefetch" href="https://ksncxtewqjvqjvjmsifo.supabase.co">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,6 +56,34 @@
       }
       .video-fade-in { animation: fadeIn 1.5s ease-in-out forwards; }
     </style>
+
+  <script>
+    // Lazy load video - načti ho jen když je viditelný
+    document.addEventListener('DOMContentLoaded', () => {
+      const videoElement = document.getElementById('header-video');
+      if (!videoElement) return;
+      
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const src = entry.target.dataset.videoSrc;
+              if (src && !entry.target.src) {
+                entry.target.src = src;
+                entry.target.load();
+                observer.unobserve(entry.target);
+              }
+            }
+          });
+        }, { rootMargin: '50px' });
+        
+        observer.observe(videoElement);
+      } else {
+        // Fallback pro starší prohlížeče
+        videoElement.src = videoElement.dataset.videoSrc;
+      }
+    });
+  </script>
 
   <script type="importmap">
 {
