@@ -22,12 +22,14 @@ jobs:
     - name: Build
       run: npm run build
 
+    - name: Install LFTP
+      run: sudo apt-get update && sudo apt-get install -y lftp
+
     - name: Deploy to FTP
-      uses: milanowicz/ftp-deploy@v1.7.0
-      with:
-        host: ${{ secrets.FTP_HOST }}
-        user: ${{ secrets.FTP_USERNAME }}
-        password: ${{ secrets.FTP_PASSWORD }}
-        local_dir: ./dist/
-        remote_dir: /www/domains/jakubminka.cz/
+      run: |
+        lftp -u ${{ secrets.FTP_USERNAME }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_HOST }} << EOF
+        mirror -R --delete ./dist/ /www/domains/jakubminka.cz/
+        quit
+        EOF
+
 
