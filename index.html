@@ -57,47 +57,7 @@
       .video-fade-in { animation: fadeIn 1.5s ease-in-out forwards; }
     </style>
 
-  <script>
-    // Lazy load video - načti ho jen když je viditelný
-    document.addEventListener('DOMContentLoaded', () => {
-      const videoElement = document.getElementById('header-video');
-      if (!videoElement) return;
-      
-      if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const src = entry.target.dataset.videoSrc;
-              if (src && !entry.target.src) {
-                entry.target.src = src;
-                entry.target.load();
-                observer.unobserve(entry.target);
-              }
-            }
-          });
-        }, { rootMargin: '50px' });
-        
-        observer.observe(videoElement);
-      } else {
-        // Fallback pro starší prohlížeče
-        videoElement.src = videoElement.dataset.videoSrc;
-      }
-    });
-  </script>
 
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/",
-    "@google/genai": "https://esm.sh/@google/genai@^1.36.0",
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "vite": "https://esm.sh/vite@^7.3.1",
-    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
-  }
-}
-</script>
   <script type="module" crossorigin src="/assets/index-BtfQ5TR0.js"></script>
 </head>
   <body class="bg-stone-50 text-stone-900">
