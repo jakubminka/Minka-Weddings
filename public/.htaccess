@@ -1,2 +1,11 @@
-DirectoryIndex index.html
-Options -Indexes
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Ignoruj soubory a slozky
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+  # Vsechno presmeruj na index.html pro React routing
+  RewriteRule ^ index.html [QSA,L]
+</IfModule>
