@@ -1,10 +1,5 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /
-
-  # Redirect jakubminka.cz and www.jakubminka.cz to www.minka-weddings.cz
-  RewriteCond %{HTTP_HOST} ^(www\.)?jakubminka\.cz$ [NC]
-  RewriteRule ^(.*)$ https://www.minka-weddings.cz/$1 [R=301,L]
 
   # SPA routing - pokud soubor/složka neexistuje, serve index.html
   RewriteCond %{REQUEST_FILENAME} !-f
